@@ -24,8 +24,10 @@ M.plugins = {
       },
    },
    default_plugin_config_replace = {
+      alpha = pluginConf.alpha,
       nvim_treesitter = pluginConf.treesitter,
       nvim_tree = pluginConf.nvimtree,
+      bufferline = pluginConf.bufferline,
    },
    install = userPlugins,
 }
