@@ -1,8 +1,8 @@
 local map = require("core.utils").map
 
 -- misc
-map("n", "H", "^")
-map("n", "L", "$")
+map({ "n", "v" }, "H", "^")
+map({ "n", "v" }, "L", "$")
 
 -- telescope
 map("n", "<leader>fp", ":Telescope media_files <CR>")
@@ -31,10 +31,8 @@ map("n", "]c", "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
 map("n", "[c", "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true })
 
 -- Actions
-map("n", "<leader>hs", ":Gitsigns stage_hunk<CR>")
-map("v", "<leader>hs", ":Gitsigns stage_hunk<CR>")
-map("n", "<leader>hr", ":Gitsigns reset_hunk<CR>")
-map("v", "<leader>hr", ":Gitsigns reset_hunk<CR>")
+map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
+map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
 map("n", "<leader>hS", "<cmd>Gitsigns stage_buffer<CR>")
 map("n", "<leader>hu", "<cmd>Gitsigns undo_stage_hunk<CR>")
 map("n", "<leader>hR", "<cmd>Gitsigns reset_buffer<CR>")
@@ -46,5 +44,4 @@ map("n", "<leader>hD", '<cmd>lua require"gitsigns".diffthis("~")<CR>')
 map("n", "<leader>td", "<cmd>Gitsigns toggle_deleted<CR>")
 
 -- Text object
-map("o", "ih", ":<C-U>Gitsigns select_hunk<CR>")
-map("x", "ih", ":<C-U>Gitsigns select_hunk<CR>")
+map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
