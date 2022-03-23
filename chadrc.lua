@@ -22,6 +22,9 @@ M.plugins = {
       lspconfig = {
          setup_lspconf = "custom.plugins.configs.lsp",
       },
+      statusline = {
+         style = "block", -- default, round , slant , block , arrow
+      },
    },
    default_plugin_config_replace = {
       alpha = pluginConf.alpha,
