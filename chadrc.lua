@@ -5,7 +5,7 @@ local M = {}
 
 M.ui = {
    hl_override = "custom.highlights",
-   theme = "gruvbox",
+   theme = "onedark-deep",
    transparency = true,
 }
 
@@ -15,6 +15,7 @@ M.options = {
 
 M.plugins = {
    status = {
+      colorizer = true,
       alpha = true, -- dashboard
    },
    options = {
