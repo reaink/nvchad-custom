@@ -2,6 +2,9 @@ local null_ls = require "null-ls"
 local b = null_ls.builtins
 
 local sources = {
+
+   b.formatting.eslint_d,
+
    b.formatting.prettierd.with {
       filetypes = {
          "javascript",
@@ -18,10 +21,9 @@ local sources = {
          "yaml",
          "markdown",
          "graphql",
-         "handlebars",
       },
    },
-
+   b.formatting.prismaFmt,
    -- Lua
    b.formatting.stylua,
    b.diagnostics.luacheck.with { extra_args = { "--global vim" } },

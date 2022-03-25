@@ -131,4 +131,25 @@ return {
          }
       end,
    },
+   {
+      "gaelph/logsitter.nvim",
+      requires = { "nvim-treesitter/nvim-treesitter" },
+      config = function()
+         require("logsitter").log(file_type)
+      end,
+   },
+   {
+      "neoclide/coc.nvim",
+      branch = "release",
+   },
+   {
+      "folke/todo-comments.nvim",
+      requires = "nvim-lua/plenary.nvim",
+      config = function()
+         require("todo-comments").setup()
+      end,
+   },
+   {
+      "kdheepak/lazygit.nvim",
+   },
 }
