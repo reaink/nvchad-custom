@@ -4,25 +4,7 @@ local b = null_ls.builtins
 local sources = {
 
    b.formatting.eslint_d,
-
-   b.formatting.prettierd.with {
-      filetypes = {
-         "javascript",
-         "javascriptreact",
-         "typescript",
-         "typescriptreact",
-         "vue",
-         "css",
-         "scss",
-         "less",
-         "html",
-         "json",
-         "jsonc",
-         "yaml",
-         "markdown",
-         "graphql",
-      },
-   },
+   -- b.formatting.prettier,
    b.formatting.prismaFmt,
    -- Lua
    b.formatting.stylua,

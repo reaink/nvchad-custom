@@ -6,6 +6,14 @@ return {
    { "nvim-lua/plenary.nvim", event = { "BufRead", "BufNewFile" } },
    -- character lookup
    { "BurntSushi/ripgrep", event = { "BufRead", "BufNewFile" } },
+   {
+      "tami5/lspsaga.nvim",
+      load_file = true,
+      after = "nvim-lsp-installer",
+      config = function()
+         require("lspsaga").setup()
+      end,
+   },
    { "sharkdp/fd", event = { "BufRead", "BufNewFile" } },
    {
       "j-hui/fidget.nvim",
@@ -59,16 +67,6 @@ return {
    -- git copilot is autocompleted
    { "github/copilot.vim", load_file = true, event = "InsertCharPre" },
    -- git plugin
-   {
-      "lewis6991/gitsigns.nvim",
-      load_file = true,
-      after = { "nvim-treesitter", "plenary.nvim" },
-      config = function()
-         require("gitsigns").setup {
-            current_line_blame = true,
-         }
-      end,
-   },
    { "nvim-pack/nvim-spectre", load_file = true, after = { "ripgrep", "plenary.nvim" } },
    { "davidgranstrom/nvim-markdown-preview", load_file = true, ft = "markdown" },
    { "ethanholz/nvim-lastplace", load_file = true, event = { "BufRead", "BufNewFile" } },
@@ -100,8 +98,22 @@ return {
          require "custom.plugins.configs.truezen"
       end,
    },
+   -- vsnip engine for code snippet support
+   { "hrsh7th/vim-vsnip", event = { "InsertEnter", "CmdlineEnter" } },
+   { "hrsh7th/vim-vsnip-integ", event = { "InsertEnter", "CmdlineEnter" } },
+   -- adds a vscode-like icon for completion
+   { "onsails/lspkind-nvim", event = { "InsertEnter", "CmdlineEnter" } },
+   -- source of code snippets for vsnip
+   { "hrsh7th/cmp-vsnip", after = "nvim-cmp" },
+   -- command completion
+   { "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
+   -- sql completion
+   { "kristijanhusak/vim-dadbod-completion", after = "nvim-cmp" },
+   -- spelling suggestions
+   { "f3fora/cmp-spell", after = "nvim-cmp" },
    -- query the startup time
    { "dstein64/vim-startuptime", cmd = "StartupTime" },
+   { "tzachar/cmp-tabnine", run = "./install.sh", after = "nvim-cmp" },
    {
       "natecraddock/sessions.nvim",
       cmd = { "SessionsSave", "SessionsLoad", "SessionsStop" },

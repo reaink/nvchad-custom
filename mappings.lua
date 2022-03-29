@@ -50,3 +50,10 @@ map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
 
 -- Lazygit
 map("n", "<leader>lg", ":LazyGit <CR>")
+
+-- NullLs
+--- Eslint
+map("n", "<leader>ne", ":NullLs eslint<CR>")
+
+-- Switch
+map("n", "gs", ":Switch<CR>")

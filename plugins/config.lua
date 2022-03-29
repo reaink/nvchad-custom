@@ -17,11 +17,7 @@ M.alpha = {
 }
 
 M.treesitter = {
-   ensure_installed = {
-      "lua",
-      "html",
-      "css",
-   },
+   ensure_installed = "maintained",
    incremental_selection = {
       enable = true,
       keymaps = {
@@ -57,6 +53,17 @@ M.bufferline = {
          guibg = "NONE",
       },
    },
+}
+
+M.indent_blankline = {
+   show_current_context = true,
+   show_current_context_start = true,
+   show_end_of_line = true,
+   show_first_indent_level = true,
+}
+
+M.gitsigns = {
+   current_line_blame = true,
 }
 
 return M

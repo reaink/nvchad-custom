@@ -17,6 +17,9 @@ M.plugins = {
    status = {
       colorizer = true,
       alpha = true, -- dashboard
+      blankline = true,
+      cmp = true,
+      lspsignature = true,
    },
    options = {
       lspconfig = {
@@ -30,7 +33,10 @@ M.plugins = {
       alpha = pluginConf.alpha,
       nvim_treesitter = pluginConf.treesitter,
       nvim_tree = pluginConf.nvimtree,
+      nvim_cmp = "custom.plugins.configs.cmp",
       bufferline = pluginConf.bufferline,
+      indent_blankline = pluginConf.indent_blankline,
+      gitsigns = pluginConf.gitsigns,
    },
    install = userPlugins,
 }
