@@ -17,7 +17,7 @@ M.alpha = {
 }
 
 M.treesitter = {
-   ensure_installed = "maintained",
+   ensure_installed = { "c", "javascript", "typescript", "python", "java", "rust" },
    incremental_selection = {
       enable = true,
       keymaps = {
