@@ -1,44 +1,40 @@
-local userPlugins = require "custom.plugins"
-local pluginConf = require "custom.plugins.config"
+local pluginConfs = require "custom.plugins.configs"
 
 local M = {}
 
-M.ui = {
-   hl_override = "custom.highlights",
-   theme = "onedark-deep",
-   transparency = true,
-}
+-- make sure you maintain the structure of `core/default_config.lua` here,
+-- example of changing theme:
 
 M.options = {
-   relativenumber = true,
+  nvChad = {
+    update_url = "https://github.com/NvChad/NvChad",
+    update_branch = "main",
+  },
+}
+
+M.ui = {
+  theme_toggle = { "onedark", "one_light" },
+  theme = "gruvchad",
+  transparency = true,
 }
 
 M.plugins = {
-   status = {
-      colorizer = true,
-      alpha = true, -- dashboard
-      blankline = true,
-      cmp = true,
-      lspsignature = true,
-   },
-   options = {
-      lspconfig = {
-         setup_lspconf = "custom.plugins.configs.lsp",
-      },
-      statusline = {
-         style = "block", -- default, round , slant , block , arrow
-      },
-   },
-   default_plugin_config_replace = {
-      alpha = pluginConf.alpha,
-      nvim_treesitter = pluginConf.treesitter,
-      nvim_tree = pluginConf.nvimtree,
-      nvim_cmp = "custom.plugins.configs.cmp",
-      bufferline = pluginConf.bufferline,
-      indent_blankline = pluginConf.indent_blankline,
-      gitsigns = pluginConf.gitsigns,
-   },
-   install = userPlugins,
+  user = require "custom.plugins.init",
+  options = {
+    lspconfig = {
+      setup_lspconf = "custom.plugins.lspconfig",
+    },
+    statusline = {
+      separator_style = "default",
+      config = "%!v:lua.require'ui.statusline'.run()",
+    },
+  },
+  overwrite = {
+    ["nvim-treesitter/nvim-treesitter"] = pluginConfs.treesitter,
+    ["kyazdani42/nvim-tree.lua"] = pluginConfs.nvimtree,
+  }
 }
+
+M.mappings = require "custom.mappings"
 
 return M

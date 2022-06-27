@@ -3,9 +3,9 @@ local b = null_ls.builtins
 
 local sources = {
 
-   b.formatting.eslint_d,
-   -- b.formatting.prettier,
-   b.formatting.prismaFmt,
+   b.formatting.prettierd.with { filetypes = { "html", "markdown", "css" } },
+   b.formatting.deno_fmt,
+
    -- Lua
    b.formatting.stylua,
    b.diagnostics.luacheck.with { extra_args = { "--global vim" } },
