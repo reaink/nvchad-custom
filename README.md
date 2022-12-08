@@ -29,15 +29,15 @@ Misc
 | n      | <C-h/j/k/l> | Moving the cursor between windows |
 | n      | <C-H/J/K/K> | Move Window                       |
 
--- TODO: asdf
+- Tree File ([nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua))
+
+| Models | Keys   | Instructions      |
+| ------ | ------ | ----------------- |
+| n      | \<C-n> | Toggle Tree files |
+
+
 
 ### Plugins
-
-1. [Packer](https://github.com/wbthomason/packer.nvim)
-
-   | Models | Keys         | Instructions |
-   | ------ | ------------ | ------------ |
-   | n      | \<leader\>ps | PackerSync   |
 
 1. [Hop](https://github.com/phaazon/hop.nvim)
 
