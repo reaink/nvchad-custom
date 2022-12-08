@@ -18,4 +18,12 @@ M.truzen = {
   },
 }
 
+M.hop = {
+  n = {
+    ["<leader>hw"] = { "<cmd> HopWord <CR>", "hop word" },
+    ["<leader>hl"] = { "<cmd> HopLine <CR>", "hop line" },
+    ["<leader>hc"] = { "<cmd> HopChar1 <CR>", "hop char1" },
+  }
+}
+
 return M
