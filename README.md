@@ -17,32 +17,8 @@ nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
 
 ## Documentation
 
+0. Mappings default config file is nvchad lua/core/mappings.lua.
 1. Plugins config [plugins/init.lua](./plugins/init.lua).
 2. Mappings config [mappings.lua](./mappings.lua).
 
-Misc
-
-- Window
-
-| Models | Keys        | Instructions                      |
-| ------ | ----------- | --------------------------------- |
-| n      | <C-h/j/k/l> | Moving the cursor between windows |
-| n      | <C-H/J/K/K> | Move Window                       |
-
-- Tree File ([nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua))
-
-| Models | Keys   | Instructions      |
-| ------ | ------ | ----------------- |
-| n      | \<C-n> | Toggle Tree files |
-
-
-
-### Plugins
-
-1. [Hop](https://github.com/phaazon/hop.nvim)
-
-| Models | Keys         | Instructions |
-| ------ | ------------ | ------------ |
-| n      | \<leader\>hw | HopWord      |
-| n      | \<leader\>hl | HopLine      |
-| n      | \<leader\>hc | HopChar1     |
+mappings find can see `<S>tk` open Telescope Key Maps Modal.

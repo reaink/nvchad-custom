@@ -69,7 +69,6 @@ return {
 
   -- distraction free modes
   ["Pocco81/TrueZen.nvim"] = {
-    disable = true,
     cmd = {
       "TZAtaraxis",
       "TZMinimalist",
