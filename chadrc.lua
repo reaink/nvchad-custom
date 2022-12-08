@@ -1,38 +1,20 @@
-local pluginConfs = require "custom.plugins.configs"
-
 local M = {}
 
--- make sure you maintain the structure of `core/default_config.lua` here,
--- example of changing theme:
+M.plugins = require "custom.plugins"
 
-M.options = {
-  nvChad = {
-    update_url = "https://github.com/NvChad/NvChad",
-    update_branch = "main",
-  },
-}
+-- M.options = {
+--   nvChad = {
+--     update_branch = "dev",
+--   },
+-- }
 
 M.ui = {
-  theme_toggle = { "onedark", "one_light" },
-  theme = "gruvchad",
-  transparency = true,
-}
+  -- theme stuff
+  theme = "everforest",
+  transparency = false,
+  theme_toggle = { "everforest", "everforest_light" },
 
-M.plugins = {
-  user = require "custom.plugins.init",
-  options = {
-    lspconfig = {
-      setup_lspconf = "custom.plugins.lspconfig",
-    },
-    statusline = {
-      separator_style = "default",
-      config = "%!v:lua.require'ui.statusline'.run()",
-    },
-  },
-  overwrite = {
-    ["nvim-treesitter/nvim-treesitter"] = pluginConfs.treesitter,
-    ["kyazdani42/nvim-tree.lua"] = pluginConfs.nvimtree,
-  }
+  hl_override = require("custom.highlights").overriden_hlgroups,
 }
 
 M.mappings = require "custom.mappings"
