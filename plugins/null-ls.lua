@@ -8,6 +8,7 @@ local b = null_ls.builtins
 
 local sources = {
 
+  b.formatting.eslint,
   -- Lua
   b.formatting.stylua,
 
@@ -17,8 +18,6 @@ local sources = {
 
   -- cpp
   b.formatting.clang_format,
-
-  b.formatting.eslint,
 
 }
 
