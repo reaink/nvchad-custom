@@ -76,24 +76,27 @@ M.alpha = {
 
 M.mason = {
   ensure_installed = {
-    -- lua stuff
+    "html-lsp",
+    "css-lsp",
+    "cssmodules-language-server",
+    "tailwindcss-language-server",
+
+    "typescript-language-server",
+    "deno",
+    "eslint-lsp",
+    "prettier",
+
+    "rust-analyzer",
+
     "lua-language-server",
     "stylua",
 
-    -- web dev
-    "css-lsp",
-    "html-lsp",
-    "typescript-language-server",
-    "deno",
-    -- "emmet-ls",
     "json-lsp",
     "tailwindcss-language-server",
 
-    -- shell
     "shfmt",
     "shellcheck",
   },
 }
 
 return M
-

@@ -13,13 +13,6 @@ return {
     override_options = overrides.alpha,
   },
 
-  ["phaazon/hop.nvim"] = {
-    branch = 'v2',
-    config = function()
-      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-    end
-  },
-
   ["neovim/nvim-lspconfig"] = {
     config = function()
       require "plugins.configs.lspconfig"
@@ -32,6 +25,12 @@ return {
   ["nvim-treesitter/nvim-treesitter"] = { override_options = overrides.treesitter },
   ["lukas-reineke/indent-blankline.nvim"] = { override_options = overrides.blankline },
   ["williamboman/mason.nvim"] = { override_options = overrides.mason },
+  ["nvim-telescope/telescope.nvim"] = {
+    requires = { { "nvim-lua/plenary.nvim" }, { "kdheepak/lazygit.nvim" } },
+    config = function()
+      require("telescope").load_extension "lazygit"
+    end,
+  },
 
   -- ["NvChad/ui"] = {
   --   override_options = {
@@ -66,6 +65,30 @@ return {
       require "custom.plugins.null-ls"
     end,
   },
+
+  ["phaazon/hop.nvim"] = {
+    branch = 'v2',
+    config = function()
+      local present, hop = pcall(require, "hop")
+
+      if present then
+        hop.setup { keys = 'etovxqpdygfblzhckisuran' }
+      end
+    end
+  },
+
+  ["kylechui/nvim-surround"] = {
+    tag = "*",
+    config = function()
+      local present, surround = pcall(require, "nvim-surround")
+
+      if present then
+        surround.setup()
+      end
+    end
+  },
+
+  ["kdheepak/lazygit.nvim"] = {},
 
   -- distraction free modes
   ["Pocco81/TrueZen.nvim"] = {
