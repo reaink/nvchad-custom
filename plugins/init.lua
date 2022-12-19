@@ -119,6 +119,12 @@ return {
     end,
   },
 
+  ["iamcco/markdown-preview.nvim"] = {
+    config = function()
+     vim.fn["mkdp#util#install"]()
+    end,
+  },
+
   ["folke/zen-mode.nvim"] = {
     cmd = "ZenMode",
     config = function()
