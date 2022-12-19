@@ -112,15 +112,6 @@ return {
     end,
   },
 
-  -- I rarely use shade.nvim/autosave.nvim so made commands to enable them
-
-  -- dim inactive windows
-  ["andreadev-it/shade.nvim"] = {
-    config = function()
-      require "custom.plugins.shade"
-    end,
-  },
-
   -- autosave
   ["Pocco81/auto-save.nvim"] = {
     config = function()
