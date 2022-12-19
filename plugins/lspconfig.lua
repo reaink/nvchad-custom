@@ -2,7 +2,7 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local servers = { "html", "cssls", "clangd", "jsonls", "tsserver", 'tailwindcss', 'bashls' }
+local servers = { "html", "cssls", "clangd", "jsonls", "tsserver", "tailwindcss", "bashls", "cssmodules_ls" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -10,3 +10,24 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+lspconfig.emmet_ls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = {
+    "html",
+    "typescriptreact",
+    "javascriptreact",
+    "css",
+    "sass",
+    "scss",
+    "less",
+  },
+  init_options = {
+    html = {
+      options = {
+        ["bem.enabled"] = true,
+      },
+    },
+  },
+}

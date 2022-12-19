@@ -90,6 +90,8 @@ return {
 
   ["kdheepak/lazygit.nvim"] = {},
 
+  ["mg979/vim-visual-multi"] = {},
+
   -- distraction free modes
   ["Pocco81/TrueZen.nvim"] = {
     cmd = {
@@ -114,7 +116,6 @@ return {
 
   -- dim inactive windows
   ["andreadev-it/shade.nvim"] = {
-    opt = true,
     config = function()
       require "custom.plugins.shade"
     end,
@@ -122,7 +123,6 @@ return {
 
   -- autosave
   ["Pocco81/auto-save.nvim"] = {
-    opt = true,
     config = function()
       require("auto-save").setup()
     end,
