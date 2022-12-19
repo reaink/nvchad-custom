@@ -30,19 +30,6 @@ M.truzen = {
   },
 }
 
-
-M.shade = {
-  n = {
-    ["<leader>s"] = {
-      function()
-        require("shade").toggle()
-      end,
-
-      "toggle shade.nvim",
-    },
-  },
-}
-
 M.hop = {
   n = {
     ["<leader>hw"] = { "<cmd> HopWord <CR>", "hop word" },

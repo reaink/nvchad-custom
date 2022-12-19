@@ -45,6 +45,15 @@ return {
 
   --------------------------------------------- custom plugins ----------------------------------------------
 
+  ["zbirenbaum/copilot.lua"] = {
+    event = "VimEnter",
+    config = function()
+      vim.defer_fn(function()
+        require("copilot").setup()
+      end, 100)
+    end,
+  },
+
   -- autoclose tags in html, jsx only
   ["windwp/nvim-ts-autotag"] = {
     ft = { "html", "javascriptreact" },
@@ -67,14 +76,14 @@ return {
   },
 
   ["phaazon/hop.nvim"] = {
-    branch = 'v2',
+    branch = "v2",
     config = function()
       local present, hop = pcall(require, "hop")
 
       if present then
-        hop.setup { keys = 'etovxqpdygfblzhckisuran' }
+        hop.setup { keys = "etovxqpdygfblzhckisuran" }
       end
-    end
+    end,
   },
 
   ["kylechui/nvim-surround"] = {
@@ -85,7 +94,7 @@ return {
       if present then
         surround.setup()
       end
-    end
+    end,
   },
 
   ["kdheepak/lazygit.nvim"] = {},
@@ -121,8 +130,15 @@ return {
 
   ["iamcco/markdown-preview.nvim"] = {
     config = function()
-     vim.fn["mkdp#util#install"]()
+      vim.fn["mkdp#util#install"]()
     end,
+  },
+
+  ["folke/todo-comments.nvim"] = {
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup()
+    end
   },
 
   ["folke/zen-mode.nvim"] = {
