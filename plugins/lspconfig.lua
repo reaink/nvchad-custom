@@ -4,6 +4,11 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 local servers = { "html", "cssls", "clangd", "jsonls", "tsserver", "tailwindcss", "bashls", "cssmodules_ls" }
 
+capabilities.textDocument.foldingRange = {
+  dynamicRegistration = false,
+  lineFoldingOnly = true,
+}
+
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
@@ -31,3 +36,5 @@ lspconfig.emmet_ls.setup {
     },
   },
 }
+
+-- require("ufo").setup()

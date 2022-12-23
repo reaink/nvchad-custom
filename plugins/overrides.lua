@@ -78,6 +78,10 @@ M.alpha = {
   },
 }
 
+M.telescope = {
+  extensions_list = { "themes", "terms", "lazygit" },
+}
+
 M.mason = {
   ensure_installed = {
     "html-lsp",

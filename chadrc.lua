@@ -9,7 +9,6 @@ M.plugins = require "custom.plugins"
 -- }
 
 M.ui = {
-  -- theme stuff
   theme = "everforest",
   transparency = false,
   theme_toggle = { "everforest", "everforest_light" },

@@ -22,14 +22,24 @@ return {
 
   -- override default configs
   ["kyazdani42/nvim-tree.lua"] = { override_options = overrides.nvimtree },
-  ["nvim-treesitter/nvim-treesitter"] = { override_options = overrides.treesitter },
+  ["nvim-treesitter/nvim-treesitter"] = {
+    override_options = overrides.treesitter,
+    -- config = function()
+    --   require("ufo").setup {
+    --     provider_selector = function(bufnr, filetype, buftype)
+    --       return { "treesitter", "indent" }
+    --     end,
+    --   }
+    -- end,
+  },
   ["lukas-reineke/indent-blankline.nvim"] = { override_options = overrides.blankline },
   ["williamboman/mason.nvim"] = { override_options = overrides.mason },
   ["nvim-telescope/telescope.nvim"] = {
-    requires = { { "nvim-lua/plenary.nvim" }, { "kdheepak/lazygit.nvim" } },
-    config = function()
-      require("telescope").load_extension "lazygit"
-    end,
+    requires = {
+      { "nvim-lua/plenary.nvim" },
+      { "kdheepak/lazygit.nvim" },
+    },
+    override_options = overrides.telescope,
   },
 
   -- ["NvChad/ui"] = {
@@ -64,6 +74,26 @@ return {
       if present then
         autotag.setup()
       end
+    end,
+  },
+
+  ["kevinhwang91/nvim-bqf"] = {
+    ft = "qf",
+  },
+
+  ["junegunn/fzf"] = {
+    run = function()
+      vim.fn["fzf#install"]()
+    end,
+  },
+
+  -- ["kevinhwang91/nvim-ufo"] = {
+  --   requires = "kevinhwang91/promise-async",
+  -- },
+
+  ["karb94/neoscroll.nvim"] = {
+    config = function()
+      require("neoscroll").setup()
     end,
   },
 
@@ -138,7 +168,7 @@ return {
     requires = "nvim-lua/plenary.nvim",
     config = function()
       require("todo-comments").setup()
-    end
+    end,
   },
 
   ["folke/zen-mode.nvim"] = {
