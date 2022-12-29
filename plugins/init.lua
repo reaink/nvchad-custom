@@ -55,12 +55,13 @@ return {
 
   --------------------------------------------- custom plugins ----------------------------------------------
 
-  ["zbirenbaum/copilot.lua"] = {
-    event = "VimEnter",
+  ["natecraddock/workspaces.nvim"] = {
     config = function()
-      vim.defer_fn(function()
-        require("copilot").setup()
-      end, 100)
+      require("workspaces").setup {
+        hooks = {
+          open = { "NvimTreeOpen", "Telescope find_files" },
+        },
+      }
     end,
   },
 
@@ -130,6 +131,20 @@ return {
   ["kdheepak/lazygit.nvim"] = {},
 
   ["mg979/vim-visual-multi"] = {},
+
+  ["dense-analysis/neural"] = {
+    config = function()
+      require("neural").setup {
+        open_ai = {
+          api_key = "<YOUR OPENAI API SECRET KEY>",
+        },
+      }
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "ElPiloto/significant.nvim",
+    },
+  },
 
   -- distraction free modes
   ["Pocco81/TrueZen.nvim"] = {

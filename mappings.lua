@@ -1,4 +1,5 @@
 local M = {}
+local workspaces = require "workspaces"
 
 M.general = {
   n = {
@@ -35,6 +36,31 @@ M.hop = {
     ["<leader>hw"] = { "<cmd> HopWord <CR>", "hop word" },
     ["<leader>hl"] = { "<cmd> HopLine <CR>", "hop line" },
     ["<leader>hc"] = { "<cmd> HopChar1 <CR>", "hop char1" },
+  },
+}
+
+M.workspaces = {
+  n = {
+    ["<leader>wa"] = {
+      function()
+        vim.lsp.buf.add_workspace_folder()
+        workspaces.add()
+      end,
+      "add workspace folder",
+    },
+
+    ["<leader>wr"] = {
+      function()
+        vim.lsp.buf.remove_workspace_folder()
+        workspaces.remove()
+      end,
+      "remove workspace folder",
+    },
+
+    ["<leader>wl"] = {
+      "<cmd> Telescope workspaces <CR>",
+      "list workspace folders",
+    },
   },
 }
 

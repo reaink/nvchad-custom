@@ -39,3 +39,10 @@ autocmd("VimLeavePre", {
   end,
 })
 
+autocmd("FileType", {
+  pattern = "qf",
+  callback = function()
+    vim.keymap.set("n", "<Esc>", '<cmd> cclose <CR>')
+  end,
+})
+

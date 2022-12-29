@@ -120,7 +120,7 @@ M.telescope = {
   defaults = {
     prompt_prefix = "  ",
   },
-  extensions_list = { "themes", "terms", "lazygit" },
+  extensions_list = { "themes", "terms", "lazygit", "workspaces" },
 }
 
 M.mason = {
