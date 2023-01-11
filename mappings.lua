@@ -6,7 +6,6 @@ M.general = {
     [";"] = { ":", "command mode", opts = { nowait = true } },
 
     ["<leader>cd"] = { "<cmd> cd %:p:h <CR> <cmd> pwd <CR>", "jump to current dir to pwd" },
-    ["<leader>gg"] = { "<cmd> LazyGit <CR><CR>", "open lazygit" },
 
     ["<A-Down>"] = { "<cmd> res +1 <CR>", "resize window +1" },
     ["<A-Up>"] = { "<cmd> res -1 <CR>", "resize window -1" },
@@ -21,6 +20,13 @@ M.general = {
   t = {
     ["<C-;>"] = { "<C-\\><C-N>", "escape terminal mode" },
   },
+}
+
+M.lazygit = {
+  n = {
+    ["<leader>gg"] = { "<cmd> LazyGit <CR>", "open lazygit" },
+    ["<leader>gf"] = { "<cmd> LazyGitFilterCurrentFile <CR>", "open lazygit filter current file" },
+  }
 }
 
 M.truzen = {

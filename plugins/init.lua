@@ -130,13 +130,12 @@ return {
 
   ["kdheepak/lazygit.nvim"] = {},
 
-  ["mg979/vim-visual-multi"] = {},
-
   ["dense-analysis/neural"] = {
     config = function()
       require("neural").setup {
         open_ai = {
           api_key = "<YOUR OPENAI API SECRET KEY>",
+        },
         ui = {
           icon = " ",
         },
@@ -147,6 +146,8 @@ return {
       "ElPiloto/significant.nvim",
     },
   },
+
+  ["mg979/vim-visual-multi"] = {},
 
   -- distraction free modes
   ["Pocco81/TrueZen.nvim"] = {
@@ -187,6 +188,8 @@ return {
       require("todo-comments").setup()
     end,
   },
+
+  ["RRethy/vim-illuminate"] = {},
 
   ["folke/zen-mode.nvim"] = {
     cmd = "ZenMode",
