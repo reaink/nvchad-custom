@@ -191,6 +191,23 @@ return {
 
   ["RRethy/vim-illuminate"] = {},
 
+  ["pwntester/octo.nvim"] = {
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      "kyazdani42/nvim-web-devicons",
+    },
+    after = "telescope.nvim",
+    config = function()
+      require("octo").setup {
+        ssh_aliases = {
+          ["github-rea"] = "github.com",
+          ["github-work"] = "github.com",
+        }
+      }
+    end,
+  },
+
   ["folke/zen-mode.nvim"] = {
     cmd = "ZenMode",
     config = function()
