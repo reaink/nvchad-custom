@@ -46,6 +46,15 @@ M.nvimtree = {
 }
 
 M.blankline = {
+  space_char_blankline = " ",
+  char_highlight_list = {
+    "IndentBlanklineIndent1",
+    "IndentBlanklineIndent2",
+    "IndentBlanklineIndent3",
+    "IndentBlanklineIndent4",
+    "IndentBlanklineIndent5",
+    "IndentBlanklineIndent6",
+  },
   filetype_exclude = {
     "help",
     "terminal",
@@ -112,8 +121,8 @@ M.alpha = {
       button("SPC b m", "  Bookmarks  ", ":Telescope marks<CR>"),
       button("SPC t h", "  Themes  ", ":Telescope themes<CR>"),
       button("SPC e s", "  Settings", ":e $MYVIMRC | :cd %:p:h <CR>"),
-    }
-  }
+    },
+  },
 }
 
 M.telescope = {

@@ -1,5 +1,7 @@
 local M = {}
 
+local highlights = require "custom.highlights"
+
 M.plugins = require "custom.plugins"
 
 -- M.options = {
@@ -13,7 +15,8 @@ M.ui = {
   transparency = false,
   theme_toggle = { "everforest", "everforest_light" },
 
-  hl_override = require("custom.highlights").overriden_hlgroups,
+  hl_add = highlights.add,
+  hl_override = highlights.override,
 }
 
 M.mappings = require "custom.mappings"
