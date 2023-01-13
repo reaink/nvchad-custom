@@ -1,5 +1,6 @@
 local M = {}
-local workspaces = require "workspaces"
+
+local presentWorkspaces, workspaces = pcall(require, "workspaces")
 
 M.general = {
   n = {
@@ -26,7 +27,7 @@ M.lazygit = {
   n = {
     ["<leader>gg"] = { "<cmd> LazyGit <CR>", "open lazygit" },
     ["<leader>gf"] = { "<cmd> LazyGitFilterCurrentFile <CR>", "open lazygit filter current file" },
-  }
+  },
 }
 
 M.truzen = {
@@ -53,7 +54,9 @@ M.workspaces = {
     ["<leader>wa"] = {
       function()
         vim.lsp.buf.add_workspace_folder()
-        workspaces.add()
+        if presentWorkspaces then
+          workspaces.add()
+        end
       end,
       "add workspace folder",
     },
@@ -61,7 +64,9 @@ M.workspaces = {
     ["<leader>wr"] = {
       function()
         vim.lsp.buf.remove_workspace_folder()
-        workspaces.remove()
+        if presentWorkspaces then
+          workspaces.remove()
+        end
       end,
       "remove workspace folder",
     },
