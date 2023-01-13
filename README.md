@@ -27,7 +27,7 @@ nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
 3. Installation my custom config and sync packer.
 
 ```sh
-git clone https://github.com/nshusr/nvchad-custom ~/.config/nvim/lua/custom
+git clone https://github.com/reaink/nvchad-custom ~/.config/nvim/lua/custom
 nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
 ```
 
