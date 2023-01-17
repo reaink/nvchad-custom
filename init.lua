@@ -1,11 +1,19 @@
 require "custom.commands"
 require "custom.autocmds"
 
-vim.o.foldcolumn = "1"
-vim.o.foldlevel = 99
-vim.o.foldlevelstart = 99
-vim.o.foldenable = true
-vim.o.foldmethod = "manual"
+local opt = vim.opt
+local g = vim.g
 
--- vim.keymap.set("n", "zR", require("ufo").openAllFolds)
--- vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+g.toggle_theme_icon = ""
+opt.foldcolumn = "1"
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldenable = true
+opt.foldmethod = "manual"
+
+opt.list = true
+opt.listchars:append "space:⋅"
+opt.listchars:append "eol:↴"
+
+opt.relativenumber = true
+opt.scrolloff = 8

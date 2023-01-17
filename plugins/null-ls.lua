@@ -6,26 +6,60 @@ end
 
 local b = null_ls.builtins
 
-local sources = {
+local extensions = {
+  javascript = "js",
+  javascriptreact = "jsx",
+  json = "json",
+  jsonc = "jsonc",
+  markdown = "md",
+  typescript = "ts",
+  typescriptreact = "tsx",
+}
 
-  b.formatting.eslint,
+local sources = {
   -- Lua
   b.formatting.stylua,
 
-  -- Shell
-  b.formatting.shfmt,
-  b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
+  -- TypeScript, JavaScript
+  b.code_actions.eslint_d,
+  b.formatting.deno_fmt.with {
+    args = function(params)
+      return {
+        "fmt",
+        "-",
+        "--ext",
+        extensions[params.ft],
+        "--options-line-width",
+        80,
+        "--options-indent-width",
+        vim.bo[params.bufnr].shiftwidth,
+      }
+    end,
+  },
 
+  -- Spell
   -- b.diagnostics.cspell,
   -- b.code_actions.cspell,
 
+  -- Markdown
   b.diagnostics.markdownlint,
   b.formatting.markdownlint,
 
+  -- Python
   b.diagnostics.pylama,
 
   -- cpp
   b.formatting.clang_format,
+
+  -- Rust
+  b.formatting.rustfmt,
+
+  -- Go
+  b.formatting.goimports,
+
+  -- Shell
+  b.formatting.shfmt,
+  b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
 }
 
 null_ls.setup {

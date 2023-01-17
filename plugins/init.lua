@@ -21,16 +21,9 @@ return {
   },
 
   -- override default configs
-  ["kyazdani42/nvim-tree.lua"] = { override_options = overrides.nvimtree },
+  ["nvim-tree/nvim-tree.lua"] = { override_options = overrides.nvimtree },
   ["nvim-treesitter/nvim-treesitter"] = {
     override_options = overrides.treesitter,
-    -- config = function()
-    --   require("ufo").setup {
-    --     provider_selector = function(bufnr, filetype, buftype)
-    --       return { "treesitter", "indent" }
-    --     end,
-    --   }
-    -- end,
   },
   ["lukas-reineke/indent-blankline.nvim"] = { override_options = overrides.blankline },
   ["williamboman/mason.nvim"] = { override_options = overrides.mason },
@@ -42,16 +35,9 @@ return {
     override_options = overrides.telescope,
   },
 
-  -- ["NvChad/ui"] = {
-  --   override_options = {
-  --     statusline = {
-  --       -- separater_style = 'round'
-  --       separator_style = "round", -- default/round/block/arrow
-  --
-  --       -- separator_style = "arrow",
-  --     },
-  --   },
-  -- },
+  ["NvChad/ui"] = {
+    override_options = overrides.ui,
+  },
 
   --------------------------------------------- custom plugins ----------------------------------------------
 
@@ -87,10 +73,6 @@ return {
       vim.fn["fzf#install"]()
     end,
   },
-
-  -- ["kevinhwang91/nvim-ufo"] = {
-  --   requires = "kevinhwang91/promise-async",
-  -- },
 
   ["karb94/neoscroll.nvim"] = {
     config = function()
@@ -203,7 +185,7 @@ return {
         ssh_aliases = {
           ["github-rea"] = "github.com",
           ["github-work"] = "github.com",
-        }
+        },
       }
     end,
   },

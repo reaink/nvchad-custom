@@ -2,27 +2,71 @@
 
 local M = {}
 
+-- ui config
+M.ui = {
+  statusline = {
+    separator_style = "block",
+  },
+}
+
 M.treesitter = {
   ensure_installed = {
-    "vim",
+    -- HTML CSS
     "html",
     "css",
+    "scss",
+
+    -- TypeScript, JavaScript
     "javascript",
-    "json",
-    "toml",
-    "markdown",
-    "c",
-    "bash",
-    "lua",
-    "norg",
-    "tsx",
     "typescript",
+    "tsx",
+    -- "tailwindcss-language-server",
+
+    -- Rust
+    "rust",
+
+    -- Go
+    "go",
+    "gomod",
+
+    -- Vim
+    "vim",
+    "lua",
+
+    -- PHP
+    "php",
+
+    -- Json
+    "json",
+
+    -- Markdown
+    "markdown",
+
+    -- Yaml
+    "yaml",
+
+    -- Docker
+    "dockerfile",
+
+    -- SQL
+    "sql",
+
+    -- TOML
+    "toml",
+
+    -- C
+    "c",
+
+    -- bash
+    "bash",
+
+    -- norg
+    "norg",
   },
 }
 
 M.nvimtree = {
   filters = {
-    dotfiles = true,
     custom = { "node_modules" },
   },
 
@@ -42,6 +86,15 @@ M.nvimtree = {
         git = true,
       },
     },
+  },
+}
+
+M.gitsigns = {
+  signs = {
+    add = { hl = "DiffAdd", text = "+", numhl = "GitSignsAddNr" },
+    change = { hl = "DiffChange", text = "~", numhl = "GitSignsChangeNr" },
+    delete = { hl = "DiffDelete", text = "-", numhl = "GitSignsDeleteNr" },
+    topdelete = { hl = "DiffDelete", text = "-", numhl = "GitSignsDeleteNr" },
   },
 }
 
@@ -118,33 +171,60 @@ M.alpha = {
 
 M.telescope = {
   defaults = {
-    prompt_prefix = "  ",
+    prompt_prefix = "",
   },
   extensions_list = { "themes", "terms", "lazygit", "workspaces" },
 }
 
 M.mason = {
+  ui = {
+    icons = {
+      package_pending = " ",
+      package_installed = " ",
+      package_uninstalled = " ",
+    },
+  },
   ensure_installed = {
-    "html-lsp",
-    "css-lsp",
-    "cssmodules-language-server",
-    "tailwindcss-language-server",
-
-    "typescript-language-server",
-    "deno",
-    "eslint-lsp",
-    "prettier",
-
-    "rust-analyzer",
-
+    -- Lua
     "lua-language-server",
     "stylua",
 
-    "json-lsp",
+    -- HTML CSS
+    "css-lsp",
+    "html-lsp",
+    "cssmodules-language-server",
     "tailwindcss-language-server",
 
+    -- TypeScript, JavaScript
+    "deno",
+    "typescript-language-server",
+    "eslint_d",
+
+    -- Rust
+    "rust-analyzer",
+    "rustfmt",
+
+    -- Go
+    "gopls",
+    "goimports",
+
+    -- Shell
     "shfmt",
     "shellcheck",
+
+    -- PHP
+    "intelephense",
+    "php-cs-fixer",
+    "phpcs",
+
+    -- Yaml
+    "yaml-language-server",
+
+    -- Json
+    "json-lsp",
+
+    -- Docker
+    "dockerfile-language-server",
   },
 }
 
