@@ -41,9 +41,26 @@ return {
 
   --------------------------------------------- custom plugins ----------------------------------------------
 
+  ["natecraddock/sessions.nvim"] = {
+    config = function()
+      require("sessions").setup {
+        events = { "WinEnter", "VimLeavePre" },
+        session_filepath = vim.fn.stdpath "data" .. "/sessions",
+        absolute = true,
+      }
+    end,
+  },
   ["natecraddock/workspaces.nvim"] = {
+    after = {
+      "nvim-tree.lua",
+      "telescope.nvim",
+    },
     config = function()
       require("workspaces").setup {
+        open_pre = {
+          "SessionsStop",
+          "silent %bdelete!",
+        },
         hooks = {
           open = { "NvimTreeOpen", "Telescope find_files" },
         },
