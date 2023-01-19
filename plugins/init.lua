@@ -52,9 +52,6 @@ return {
   },
   -- workspaces
   ["natecraddock/workspaces.nvim"] = {
-    after = {
-      "telescope.nvim",
-    },
     config = function()
       require("workspaces").setup {
         hooks = {
