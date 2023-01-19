@@ -7,6 +7,7 @@ M.general = {
     [";"] = { ":", "command mode", opts = { nowait = true } },
 
     ["<leader>cd"] = { "<cmd> cd %:p:h <CR> <cmd> pwd <CR>", "jump to current dir to pwd" },
+    ["<leader>ca"] = { "<cmd> CodeActionMenu <CR>", "code action menu" },
 
     ["<A-Down>"] = { "<cmd> res +1 <CR>", "resize window +1" },
     ["<A-Up>"] = { "<cmd> res -1 <CR>", "resize window -1" },
@@ -74,6 +75,63 @@ M.workspaces = {
     ["<leader>wl"] = {
       "<cmd> Telescope workspaces <CR>",
       "list workspace folders",
+    },
+  },
+}
+
+M.todoComments = {
+  n = {
+    ["<leader>tl"] = {
+      "<cmd> TodoTelescope <CR>",
+      "todo list",
+    },
+  },
+}
+
+M.pantran = {
+  n = {
+    ["<leader>tr"] = {
+      "<cmd> Pantran <cr>p",
+      "pantran selections translate",
+    },
+  },
+  x = {
+    ["<leader>tr"] = {
+      "<cmd> Pantran <CR>",
+      "pantran motion translate",
+    },
+  },
+  v = {
+    ["<leader>tr"] = {
+      "y<cmd> Pantran <CR>p",
+      "pantran selections translate",
+    },
+  },
+}
+
+M.ctrlsf = {
+  n = {
+    ["<C-f>o"] = {
+      "<cmd> CtrlSF <CR>",
+      "CtrlSF open",
+    },
+    ["<C-f>f"] = {
+      "<cmd> CtrlSFFocus <CR>",
+      "CtrlSF focus",
+    },
+    ["<C-f>c"] = {
+      "<cmd> CtrlSFClose <CR>",
+      "CtrlSF close",
+    },
+    ["<C-f>t"] = {
+      "<cmd> CtrlSFToggle <CR>",
+      "CtrlSF toggle",
+    },
+  },
+  v = {
+    ["<C-f>o"] = {
+      "<Plug>CtrlSFVwordExec",
+      "CtrlSF open",
     },
   },
 }

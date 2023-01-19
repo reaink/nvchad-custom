@@ -50,17 +50,13 @@ return {
       }
     end,
   },
+  -- workspaces
   ["natecraddock/workspaces.nvim"] = {
     after = {
-      "nvim-tree.lua",
       "telescope.nvim",
     },
     config = function()
       require("workspaces").setup {
-        open_pre = {
-          "SessionsStop",
-          "silent %bdelete!",
-        },
         hooks = {
           open = { "NvimTreeOpen", "Telescope find_files" },
         },
@@ -81,6 +77,7 @@ return {
     end,
   },
 
+  -- Better quickfix
   ["kevinhwang91/nvim-bqf"] = {
     ft = "qf",
   },
@@ -91,6 +88,7 @@ return {
     end,
   },
 
+  -- scroll smooth
   ["karb94/neoscroll.nvim"] = {
     config = function()
       require("neoscroll").setup()
@@ -105,6 +103,7 @@ return {
     end,
   },
 
+  -- jump motion
   ["phaazon/hop.nvim"] = {
     branch = "v2",
     config = function()
@@ -127,8 +126,10 @@ return {
     end,
   },
 
+  -- lazygit nvim
   ["kdheepak/lazygit.nvim"] = {},
 
+  -- openai code
   ["dense-analysis/neural"] = {
     config = function()
       require("neural").setup {
@@ -175,12 +176,14 @@ return {
     end,
   },
 
+  -- markdown plugin
   ["iamcco/markdown-preview.nvim"] = {
     config = function()
       vim.fn["mkdp#util#install"]()
     end,
   },
 
+  -- todo comments plugin
   ["folke/todo-comments.nvim"] = {
     requires = "nvim-lua/plenary.nvim",
     config = function()
@@ -188,8 +191,10 @@ return {
     end,
   },
 
+  -- automatically highlighting other uses of the word under the cursor
   ["RRethy/vim-illuminate"] = {},
 
+  -- github plugin
   ["pwntester/octo.nvim"] = {
     requires = {
       "nvim-lua/plenary.nvim",
@@ -206,6 +211,30 @@ return {
       }
     end,
   },
+
+  -- translate plugin
+  ["potamides/pantran.nvim"] = {
+    config = function()
+      require("pantran").setup {
+        default_engine = "google",
+        engines = {
+          google = {
+            default_target = "zh-CN",
+            fallback = {
+              default_target = "zh-CN",
+            },
+          },
+        },
+      }
+    end,
+  },
+
+  -- Pop-up code action menu
+  ["weilbith/nvim-code-action-menu"] = {
+    cmd = "CodeActionMenu",
+  },
+
+  ["dyng/ctrlsf.vim"] = {},
 
   ["folke/zen-mode.nvim"] = {
     cmd = "ZenMode",

@@ -75,9 +75,9 @@ M.nvimtree = {
     ignore = false,
   },
 
-  view = {
-    adaptive_size = false,
-  },
+  -- view = {
+  --   adaptive_size = false,
+  -- },
 
   renderer = {
     highlight_git = true,
