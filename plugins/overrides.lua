@@ -192,7 +192,7 @@ M.mason = {
     -- HTML CSS
     "css-lsp",
     "html-lsp",
-    "emmet_ls",
+    "emmet-ls",
     "cssmodules-language-server",
     "tailwindcss-language-server",
 
