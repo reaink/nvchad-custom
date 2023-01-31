@@ -9,6 +9,15 @@ M.ui = {
   },
 }
 
+M.cmp = {
+  { name = "luasnip" },
+  { name = "nvim_lsp" },
+  { name = "buffer" },
+  { name = "nvim_lua" },
+  { name = "path" },
+  { name = "git" },
+}
+
 M.treesitter = {
   ensure_installed = {
     -- HTML CSS
@@ -208,6 +217,9 @@ M.mason = {
     -- Go
     "gopls",
     "goimports",
+
+    --Python
+    "pyright",
 
     -- Shell
     "shfmt",
