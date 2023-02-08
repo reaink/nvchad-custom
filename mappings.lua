@@ -13,6 +13,9 @@ M.general = {
     ["<A-Up>"] = { "<cmd> res -1 <CR>", "resize window -1" },
     ["<A-Right>"] = { "<cmd> vertical resize -1 <CR>", "resize window vertical -1" },
     ["<A-Left>"] = { "<cmd> vertical resize +1 <CR>", "resize window vertical +1" },
+
+    ["<A-j>"] = { "<cmd> m+ <CR>", "move line ↓" },
+    ["<A-k>"] = { "<cmd> m-2 <CR>", "move line ↑" },
   },
 
   i = {
