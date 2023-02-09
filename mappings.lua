@@ -59,7 +59,6 @@ M.workspaces = {
   n = {
     ["<leader>wa"] = {
       function()
-        vim.lsp.buf.add_workspace_folder()
         if presentWorkspaces then
           workspaces.add()
         end
@@ -69,7 +68,6 @@ M.workspaces = {
 
     ["<leader>wr"] = {
       function()
-        vim.lsp.buf.remove_workspace_folder()
         if presentWorkspaces then
           workspaces.remove()
         end
