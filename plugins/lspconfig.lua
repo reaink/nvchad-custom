@@ -43,10 +43,10 @@ local servers = {
   "pyright",
 }
 
-capabilities.textDocument.foldingRange = {
-  dynamicRegistration = false,
-  lineFoldingOnly = true,
-}
+-- capabilities.textDocument.foldingRange = {
+--   dynamicRegistration = false,
+--   lineFoldingOnly = true,
+-- }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {

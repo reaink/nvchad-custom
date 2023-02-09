@@ -241,6 +241,12 @@ return {
 
   ["dyng/ctrlsf.vim"] = {},
 
+  ["simrat39/symbols-outline.nvim"] = {
+    config = function()
+      require("symbols-outline").setup()
+    end,
+  },
+
   ["folke/zen-mode.nvim"] = {
     cmd = "ZenMode",
     config = function()

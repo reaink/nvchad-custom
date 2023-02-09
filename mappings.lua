@@ -9,6 +9,8 @@ M.general = {
     ["<leader>cd"] = { "<cmd> cd %:p:h <CR> <cmd> pwd <CR>", "jump to current dir to pwd" },
     ["<leader>ca"] = { "<cmd> CodeActionMenu <CR>", "code action menu" },
 
+    ["<leader>so"] = { "<cmd> SymbolsOutline <CR>", "symbols outline" },
+
     ["<A-Down>"] = { "<cmd> res +1 <CR>", "resize window +1" },
     ["<A-Up>"] = { "<cmd> res -1 <CR>", "resize window -1" },
     ["<A-Right>"] = { "<cmd> vertical resize -1 <CR>", "resize window vertical -1" },
