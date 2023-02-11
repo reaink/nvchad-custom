@@ -44,17 +44,6 @@ M.truzen = {
   },
 }
 
-M.hop = {
-  n = {
-    ["<leader>hw"] = { "<cmd> HopWord <CR>", "hop word" },
-    ["<leader>hl"] = { "<cmd> HopLine <CR>", "hop line" },
-    ["<leader>hc"] = { "<cmd> HopWordCurrentLine <CR>", "hop word current line" },
-    ["<leader>hn"] = { "<cmd> HopWordAC <CR>", "hop word next" },
-    ["<leader>hp"] = { "<cmd> HopPattern <CR>", "hop pattern" },
-    ["<leader>hs"] = { "<cmd> HopChar2 <CR>", "hop search char2" },
-  },
-}
-
 M.workspaces = {
   n = {
     ["<leader>wa"] = {

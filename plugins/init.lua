@@ -98,15 +98,16 @@ return {
   },
 
   -- jump motion
-  ["phaazon/hop.nvim"] = {
-    branch = "v2",
+  ["ggandor/leap.nvim"] = {
     config = function()
-      local present, hop = pcall(require, "hop")
-
-      if present then
-        hop.setup { keys = "etovxqpdygfblzhckisuran" }
-      end
+      require("leap").add_default_mappings()
     end,
+  },
+
+  ["ggandor/flit.nvim"] = {
+    config = function ()
+      require('flit').setup()
+    end
   },
 
   ["kylechui/nvim-surround"] = {
