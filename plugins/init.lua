@@ -105,9 +105,9 @@ return {
   },
 
   ["ggandor/flit.nvim"] = {
-    config = function ()
-      require('flit').setup()
-    end
+    config = function()
+      require("flit").setup()
+    end,
   },
 
   ["kylechui/nvim-surround"] = {
@@ -241,6 +241,12 @@ return {
   ["simrat39/symbols-outline.nvim"] = {
     config = function()
       require("symbols-outline").setup()
+    end,
+  },
+
+  ["simrat39/inlay-hints.nvim"] = {
+    config = function()
+      require("inlay-hints").setup()
     end,
   },
 

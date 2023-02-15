@@ -15,7 +15,6 @@ M.cmp = {
   { name = "buffer" },
   { name = "nvim_lua" },
   { name = "path" },
-  { name = "git" },
 }
 
 M.treesitter = {
