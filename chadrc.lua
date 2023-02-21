@@ -10,12 +10,11 @@ M.options = {
 }
 
 M.ui = {
-  -- hl = highlights
   hl_add = highlights.add,
   hl_override = highlights.override,
   changed_themes = {},
-  theme_toggle = { "everforest", "everforest_light" },
-  theme = "everforest", -- default theme
+  theme_toggle = { "onedark", "one_light" },
+  theme = "onedark", -- default theme
   transparency = false,
 }
 
