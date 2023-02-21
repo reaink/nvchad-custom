@@ -18,6 +18,11 @@ M.general = {
 
     ["<A-j>"] = { "<cmd> m+ <CR>", "move line ↓" },
     ["<A-k>"] = { "<cmd> m-2 <CR>", "move line ↑" },
+
+    ["<A-=>"] = { "<cmd> TbufRight <CR>", "tabbuf move right" },
+    ["<A-->"] = { "<cmd> TbufLeft <CR>", "tabbuf move left" },
+    ["<C-]>"] = { "<cmd> tabNext <CR>", "tab next" },
+    ["<C-[>"] = { "<cmd> tabprevious <CR>", "tab previous" },
   },
 
   i = {
@@ -33,6 +38,13 @@ M.lazygit = {
   n = {
     ["<leader>gg"] = { "<cmd> LazyGit <CR>", "open lazygit" },
     ["<leader>gf"] = { "<cmd> LazyGitFilterCurrentFile <CR>", "open lazygit filter current file" },
+  },
+}
+
+M.diffview = {
+  n = {
+    ["<leader>gd"] = { "<cmd> DiffviewOpen <CR>", "open diffview" },
+    ["<leader>dc"] = { "<cmd> DiffviewClose <CR>", "close diffview" },
   },
 }
 

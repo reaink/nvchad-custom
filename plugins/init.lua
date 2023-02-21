@@ -67,11 +67,7 @@ return {
     ft = { "html", "javascriptreact" },
     after = "nvim-treesitter",
     config = function()
-      local present, autotag = pcall(require, "nvim-ts-autotag")
-
-      if present then
-        autotag.setup()
-      end
+      require("nvim-ts-autotag").setup()
     end,
   },
 
@@ -113,11 +109,7 @@ return {
   ["kylechui/nvim-surround"] = {
     tag = "*",
     config = function()
-      local present, surround = pcall(require, "nvim-surround")
-
-      if present then
-        surround.setup()
-      end
+      require("nvim-surround").setup()
     end,
   },
 
@@ -126,20 +118,13 @@ return {
 
   -- openai code
   ["dense-analysis/neural"] = {
-    config = function()
-      require("neural").setup {
-        open_ai = {
-          api_key = "<YOUR OPENAI API SECRET KEY>",
-        },
-        ui = {
-          icon = " ",
-        },
-      }
-    end,
     requires = {
       "MunifTanjim/nui.nvim",
       "ElPiloto/significant.nvim",
     },
+    config = function()
+      require "custom.plugins.neural"
+    end,
   },
 
   ["mg979/vim-visual-multi"] = {},
@@ -198,12 +183,7 @@ return {
     },
     after = "telescope.nvim",
     config = function()
-      require("octo").setup {
-        ssh_aliases = {
-          ["github-rea"] = "github.com",
-          ["github-work"] = "github.com",
-        },
-      }
+      require "custom.plugins.octo"
     end,
   },
 
@@ -217,17 +197,7 @@ return {
   -- translate plugin
   ["potamides/pantran.nvim"] = {
     config = function()
-      require("pantran").setup {
-        default_engine = "google",
-        engines = {
-          google = {
-            default_target = "zh-CN",
-            fallback = {
-              default_target = "zh-CN",
-            },
-          },
-        },
-      }
+      require "custom.plugins.pantran"
     end,
   },
 
@@ -247,6 +217,13 @@ return {
   ["simrat39/inlay-hints.nvim"] = {
     config = function()
       require("inlay-hints").setup()
+    end,
+  },
+
+  ["sindrets/diffview.nvim"] = {
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require "custom.plugins.diffview"
     end,
   },
 
