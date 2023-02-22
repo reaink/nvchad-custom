@@ -9,14 +9,6 @@ M.ui = {
   },
 }
 
-M.cmp = {
-  { name = "luasnip" },
-  { name = "nvim_lsp" },
-  { name = "buffer" },
-  { name = "nvim_lua" },
-  { name = "path" },
-}
-
 M.treesitter = {
   ensure_installed = {
     -- HTML CSS
@@ -32,44 +24,24 @@ M.treesitter = {
 
     -- Rust
     "rust",
-
     -- Go
     "go",
     "gomod",
-
     -- Vim
     "vim",
     "lua",
 
-    -- PHP
     "php",
-
-    -- Json
     "json",
-
-    -- Markdown
     "markdown",
-
-    -- Yaml
     "yaml",
-
-    -- Docker
     "dockerfile",
-
-    -- SQL
     "sql",
-
-    -- TOML
     "toml",
-
-    -- C
     "c",
-
-    -- bash
     "bash",
-
-    -- norg
     "norg",
+    "python"
   },
 }
 
@@ -219,6 +191,7 @@ M.mason = {
 
     --Python
     "pyright",
+    "pylama",
 
     -- Shell
     "shfmt",

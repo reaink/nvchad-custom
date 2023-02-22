@@ -11,7 +11,6 @@ local extensions = {
   javascriptreact = "jsx",
   json = "json",
   jsonc = "jsonc",
-  markdown = "md",
   typescript = "ts",
   typescriptreact = "tsx",
 }
@@ -35,6 +34,7 @@ local sources = {
         vim.bo[params.bufnr].shiftwidth,
       }
     end,
+    filetypes = { ["markdown"] = false },
   },
 
   -- Spell

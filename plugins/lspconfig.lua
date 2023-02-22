@@ -42,6 +42,9 @@ local servers = {
 
   -- Python
   "pyright",
+
+  -- Markdown,
+  "marksman"
 }
 
 -- capabilities.textDocument.foldingRange = {

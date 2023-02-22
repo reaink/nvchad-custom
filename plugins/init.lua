@@ -22,7 +22,6 @@ return {
 
   -- override default configs
   ["nvim-tree/nvim-tree.lua"] = { override_options = overrides.nvimtree },
-  ["hrsh7th/nvim-cmp"] = { override_options = overrides.cmp },
   ["nvim-treesitter/nvim-treesitter"] = {
     override_options = overrides.treesitter,
   },

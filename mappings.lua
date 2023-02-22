@@ -113,31 +113,4 @@ M.pantran = {
   },
 }
 
-M.ctrlsf = {
-  n = {
-    ["<C-f>o"] = {
-      "<cmd> CtrlSF <CR>",
-      "CtrlSF open",
-    },
-    ["<C-f>f"] = {
-      "<cmd> CtrlSFFocus <CR>",
-      "CtrlSF focus",
-    },
-    ["<C-f>c"] = {
-      "<cmd> CtrlSFClose <CR>",
-      "CtrlSF close",
-    },
-    ["<C-f>t"] = {
-      "<cmd> CtrlSFToggle <CR>",
-      "CtrlSF toggle",
-    },
-  },
-  v = {
-    ["<C-f>o"] = {
-      "<Plug>CtrlSFVwordExec",
-      "CtrlSF open",
-    },
-  },
-}
-
 return M
