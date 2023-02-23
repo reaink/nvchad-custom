@@ -21,6 +21,7 @@ local sources = {
 
   -- TypeScript, JavaScript
   b.code_actions.eslint_d,
+  b.formatting.eslint_d,
   b.formatting.deno_fmt.with {
     args = function(params)
       return {
