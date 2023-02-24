@@ -16,6 +16,8 @@ M.override = {
   DiffAddText = { fg = "none", bg = "#1C5458" },
 }
 
-M.add = {}
+M.add = { 
+  LspInlayHint = { link = "Comment" },
+}
 
 return M

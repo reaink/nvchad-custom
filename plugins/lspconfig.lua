@@ -2,16 +2,10 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local ih = require "inlay-hints"
 local servers = {
-
-  -- HTML
   "html",
-
-  -- CSS
   "cssls",
   "cssmodules_ls",
-
   -- TypeScript, JavaScript
   "tsserver",
   -- "tailwindcss", -- commented because it is slow
@@ -44,7 +38,10 @@ local servers = {
   "pyright",
 
   -- Markdown,
-  "marksman"
+  "marksman",
+
+  -- Java
+  "jdtls",
 }
 
 -- capabilities.textDocument.foldingRange = {
@@ -64,6 +61,18 @@ end
 --   capabilities = capabilities,
 --   filetypes = { "typescriptreact" },
 -- }
+
+lspconfig.lua_ls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      hint = {
+        enable = true,
+      },
+    },
+  },
+})
 
 lspconfig.emmet_ls.setup {
   on_attach = on_attach,
@@ -87,3 +96,30 @@ lspconfig.emmet_ls.setup {
 }
 
 -- require("ufo").setup()
+
+lspconfig.tsserver.setup({
+  settings = {
+    typescript = {
+      inlayHints = {
+        includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      }
+    },
+    javascript = {
+      inlayHints = {
+        includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      }
+    }
+  }
+})

@@ -213,11 +213,31 @@ return {
     end,
   },
 
-  ["simrat39/inlay-hints.nvim"] = {
+  ["lvimuser/lsp-inlayhints.nvim"] = {
     config = function()
-      require("inlay-hints").setup()
+      require("lsp-inlayhints").setup()
     end,
   },
+
+  ["simrat39/rust-tools.nvim"] = {
+    after = "nvim-lspconfig",
+    config = function()
+      require("rust-tools").setup {
+        tools = {
+          inlay_hints = {
+            auto = false,
+          },
+        },
+      }
+    end,
+  },
+
+  -- ["barrett-ruth/import-cost.nvim"] = {
+  --   build = "sh install.sh yarn",
+  --   config = function()
+  --     require("import-cost").setup {}
+  --   end,
+  -- },
 
   ["sindrets/diffview.nvim"] = {
     requires = "nvim-lua/plenary.nvim",

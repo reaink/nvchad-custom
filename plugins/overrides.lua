@@ -41,7 +41,8 @@ M.treesitter = {
     "c",
     "bash",
     "norg",
-    "python"
+    "python",
+    "graphql",
   },
 }
 
