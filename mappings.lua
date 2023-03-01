@@ -1,8 +1,6 @@
 ---@type MappingsTable
 local M = {}
 
-local presentWorkspaces, workspaces = pcall(require, "workspaces")
-
 M.general = {
   n = {
     [";"] = { ":", "command mode", opts = { nowait = true } },
@@ -60,20 +58,12 @@ M.truzen = {
 M.workspaces = {
   n = {
     ["<leader>wa"] = {
-      function()
-        if presentWorkspaces then
-          workspaces.add()
-        end
-      end,
+      "<cmd> WorkspacesAdd <CR>",
       "add workspace folder",
     },
 
     ["<leader>wr"] = {
-      function()
-        if presentWorkspaces then
-          workspaces.remove()
-        end
-      end,
+      "<cmd> WorkspacesRemove <CR>",
       "remove workspace folder",
     },
 
