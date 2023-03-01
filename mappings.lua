@@ -1,3 +1,4 @@
+---@type MappingsTable
 local M = {}
 
 local presentWorkspaces, workspaces = pcall(require, "workspaces")
@@ -111,6 +112,15 @@ M.pantran = {
       "pantran selections translate",
     },
   },
+}
+
+M.lazy = {
+  n = {
+    ["<leader>lz"] = {
+      "<cmd> Lazy <cr>",
+      "open lazy"
+    }
+  }
 }
 
 return M

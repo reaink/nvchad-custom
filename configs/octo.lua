@@ -5,8 +5,7 @@ if not present then
 end
 
 local options = {
-  ssh_aliases = {
-  },
+  ssh_aliases = {},
 }
 
 octo.setup(options)

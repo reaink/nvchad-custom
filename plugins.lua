@@ -2,19 +2,15 @@ local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
-  -- ["goolord/alpha-nvim"] = {
-  --   disable = false,
-  --   override_options = overrides.alpha,
-  -- },
-
-   {
+  -- lsp config
+  {
     "neovim/nvim-lspconfig",
-     dependencies = {
+    dependencies = {
       -- format & linting
       {
         "jose-elias-alvarez/null-ls.nvim",
         config = function()
-          require("custom.configs.null-ls")
+          require "custom.configs.null-ls"
         end,
       },
       {
@@ -35,8 +31,7 @@ local plugins = {
       require "custom.configs.lspconfig"
     end,
   },
-
--- overrde plugin configs
+  -- overrides defaults
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
@@ -63,14 +58,7 @@ local plugins = {
   },
   {
     "hrsh7th/nvim-cmp",
-    dependencies = {
-        {
-          "tzachar/cmp-tabnine",
-          after = "nvim-cmp",
-          run = "./install.sh",
-        },
-    },
-    opts = overrides.cmp
+    opts = overrides.cmp,
   },
   {
     "NvChad/ui",
@@ -80,9 +68,12 @@ local plugins = {
     "folke/which-key.nvim",
     enabled = true,
   },
-
-  --------------------------------------------- custom plugins ----------------------------------------------
-
+  -- add custom plugins
+  {
+    "tzachar/cmp-tabnine",
+    build = "./install.sh",
+    dependencies = "hrsh7th/nvim-cmp",
+  },
   {
     "natecraddock/sessions.nvim",
     config = function()
@@ -130,12 +121,38 @@ local plugins = {
 
   -- scroll smooth
   {
-    "yuttie/comfortable-motion.vim",
+    "declancm/cinnamon.nvim",
+    keys = {
+      { "<C-u>" },
+      { "<C-d>" },
+      { "<C-f>" },
+      { "<C-b>" },
+      { "<C-o>" },
+      { "<C-i>" },
+      { "zz" },
+      { "zt" },
+      { "zb" },
+    },
+    config = function()
+      require("cinnamon").setup {
+        default_keymaps = true,
+        extra_keymaps = true,
+      }
+    end,
   },
 
   -- jump motion
   {
     "ggandor/leap.nvim",
+    keys = {
+      { "s", mode = { "n", "x" }, desc = "Leap forward to" },
+      { "S", mode = { "n", "x" }, desc = "Leap backward to" },
+      { "gs", mode = { "n", "x" }, desc = "Leap from windows" },
+      { "cx", mode = { "n", "x" }, desc = "Leap change forward to" },
+      { "cX", mode = { "n", "x" }, desc = "Leap change backward to" },
+      { "dx", mode = { "n", "x" }, desc = "Leap delete forward to" },
+      { "dX", mode = { "n", "x" }, desc = "Leap delete backward to" },
+    },
     config = function()
       require("leap").add_default_mappings()
     end,
@@ -143,6 +160,10 @@ local plugins = {
 
   {
     "ggandor/flit.nvim",
+    keys = {
+      { "f", mode = { "n" }, desc = "Flit forward to" },
+      { "F", mode = { "n" }, desc = "Flit backward to" },
+    },
     config = function()
       require("flit").setup()
     end,
@@ -150,7 +171,7 @@ local plugins = {
 
   {
     "kylechui/nvim-surround",
-    version = "*",
+    event = "BufEnter",
     config = function()
       require("nvim-surround").setup()
     end,
@@ -164,6 +185,9 @@ local plugins = {
   -- multi cursor
   {
     "mg979/vim-visual-multi",
+    keys = {
+      { "<C-n>", mode = { "n", "x" } },
+    },
   },
 
   -- distraction free modes
@@ -175,7 +199,7 @@ local plugins = {
       "TZFocus",
     },
     config = function()
-      require "custom.plugins.truezen"
+      require "custom.configs.truezen"
     end,
   },
 
@@ -208,6 +232,7 @@ local plugins = {
   {
     "folke/todo-comments.nvim",
     dependencies = "nvim-lua/plenary.nvim",
+    cmd = { "TodoTelescope" },
     config = function()
       require("todo-comments").setup()
     end,
@@ -224,10 +249,10 @@ local plugins = {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
-      "kyazdani42/nvim-web-devicons",
+      "nvim-tree/nvim-web-devicons",
     },
     config = function()
-      require "custom.plugins.octo"
+      require "custom.configs.octo"
     end,
   },
 
@@ -242,8 +267,9 @@ local plugins = {
   -- translate plugin
   {
     "potamides/pantran.nvim",
+    cmd = { "Pantran" },
     config = function()
-      require "custom.plugins.pantran"
+      require "custom.configs.pantran"
     end,
   },
 
@@ -256,9 +282,9 @@ local plugins = {
   {
     "dyng/ctrlsf.vim",
   },
-
   {
     "simrat39/symbols-outline.nvim",
+    cmd = "SymbolsOutline",
     config = function()
       require("symbols-outline").setup()
     end,
@@ -271,22 +297,14 @@ local plugins = {
     end,
   },
 
-
-  -- ["barrett-ruth/import-cost.nvim"] = {
-  --   build = "sh install.sh yarn",
-  --   config = function()
-  --     require("import-cost").setup {}
-  --   end,
-  -- },
-
   {
     "sindrets/diffview.nvim",
+    cmd = { "DiffviewOpen", "DiffviewClose" },
     dependencies = "nvim-lua/plenary.nvim",
     config = function()
-      require "custom.plugins.diffview"
+      require "custom.configs.diffview"
     end,
   },
-
 
   {
     "folke/zen-mode.nvim",

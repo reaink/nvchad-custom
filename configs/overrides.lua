@@ -1,13 +1,6 @@
 -- overriding default plugin configs!
 local M = {}
 
--- ui config
-M.ui = {
-  statusline = {
-    separator_style = "block",
-  },
-}
-
 M.cmp = {
   sources = {
     { name = "luasnip" },
@@ -44,6 +37,7 @@ M.treesitter = {
     "php",
     "json",
     "markdown",
+    "markdown_inline",
     "yaml",
     "dockerfile",
     "sql",
@@ -53,6 +47,9 @@ M.treesitter = {
     "norg",
     "python",
     "graphql",
+  },
+  indent = {
+    enable = true,
   },
 }
 
@@ -101,84 +98,9 @@ M.blankline = {
   },
 }
 
-local function button(sc, txt, keybind)
-  local sc_ = sc:gsub("%s", ""):gsub("SPC", "<leader>")
-
-  local opts = {
-    position = "center",
-    text = txt,
-    shortcut = sc,
-    cursor = 5,
-    width = 36,
-    align_shortcut = "right",
-    hl = "AlphaButtons",
-  }
-
-  if keybind then
-    opts.keymap = { "n", sc_, keybind, { noremap = true, silent = true } }
-  end
-
-  return {
-    type = "button",
-    val = txt,
-    on_press = function()
-      local key = vim.api.nvim_replace_termcodes(sc_, true, false, true) or ""
-      vim.api.nvim_feedkeys(key, "normal", false)
-    end,
-    opts = opts,
-  }
-end
-
-M.alpha = {
-  disabled = false,
-  header = {
-    val = {
-      "           ▄ ▄                   ",
-      "       ▄   ▄▄▄     ▄ ▄▄▄ ▄ ▄     ",
-      "       █ ▄ █▄█ ▄▄▄ █ █▄█ █ █     ",
-      "    ▄▄ █▄█▄▄▄█ █▄█▄█▄▄█▄▄█ █     ",
-      "  ▄ █▄▄█ ▄ ▄▄ ▄█ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄  ",
-      "  █▄▄▄▄ ▄▄▄ █ ▄ ▄▄▄ ▄ ▄▄▄ ▄ ▄ █ ▄ ",
-      "▄ █ █▄█ █▄█ █ █ █▄█ █ █▄█ ▄▄▄ █ █ ",
-      "█▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █ ",
-      "    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█     ",
-    },
-  },
-  buttons = {
-    val = {
-      button("SPC f f", "  Find File  ", ":Telescope find_files<CR>"),
-      button("SPC f o", "  Recent File  ", ":Telescope oldfiles<CR>"),
-      button("SPC f w", "  Find Word  ", ":Telescope live_grep<CR>"),
-      button("SPC b m", "  Bookmarks  ", ":Telescope marks<CR>"),
-      button("SPC t h", "  Themes  ", ":Telescope themes<CR>"),
-      button("SPC e s", "  Settings", ":e $MYVIMRC | :cd %:p:h <CR>"),
-    },
-  },
-}
-
--- local present, previewers = pcall(require, "telescope.previewers")
---
--- if not present then
---   return
--- end
---
--- local function previews_new_maker(filepath, bufnr, opts)
---   opts = opts or {}
---   filepath = vim.fn.expand(filepath)
---   vim.loop.fs_stat(filepath, function(_, stat)
---     if not stat then return end
---     if stat.size > 100000 then
---       return
---     else
---       previewers.buffer_previewer_maker(filepath, bufnr, opts)
---     end
---   end)
--- end
-
 M.telescope = {
   defaults = {
     prompt_prefix = "",
-    -- buffer_previewer_maker = previews_new_maker,
   },
   extensions_list = { "themes", "terms", "lazygit", "workspaces" },
 }
