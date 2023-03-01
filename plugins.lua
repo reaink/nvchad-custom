@@ -1,45 +1,90 @@
-local overrides = require "custom.plugins.overrides"
+local overrides = require "custom.configs.overrides"
 
-return {
+---@type NvPluginSpec[]
+local plugins = {
+  -- ["goolord/alpha-nvim"] = {
+  --   disable = false,
+  --   override_options = overrides.alpha,
+  -- },
 
-  ----------------------------------------- default plugins ------------------------------------------
-
-  ["folke/which-key.nvim"] = {
-    disable = false,
-  },
-
-  ["goolord/alpha-nvim"] = {
-    disable = false,
-    override_options = overrides.alpha,
-  },
-
-  ["neovim/nvim-lspconfig"] = {
+   {
+    "neovim/nvim-lspconfig",
+     dependencies = {
+      -- format & linting
+      {
+        "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+          require("custom.configs.null-ls")
+        end,
+      },
+      {
+        "simrat39/rust-tools.nvim",
+        config = function()
+          require("rust-tools").setup {
+            tools = {
+              inlay_hints = {
+                auto = false,
+              },
+            },
+          }
+        end,
+      },
+    },
     config = function()
       require "plugins.configs.lspconfig"
-      require "custom.plugins.lspconfig"
+      require "custom.configs.lspconfig"
     end,
   },
 
-  -- override default configs
-  ["nvim-tree/nvim-tree.lua"] = { override_options = overrides.nvimtree },
-  ["nvim-treesitter/nvim-treesitter"] = {
-    override_options = overrides.treesitter,
+-- overrde plugin configs
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = overrides.treesitter,
   },
-  ["lukas-reineke/indent-blankline.nvim"] = { override_options = overrides.blankline },
-  ["williamboman/mason.nvim"] = { override_options = overrides.mason },
-  ["nvim-telescope/telescope.nvim"] = {
-    requires = {
+  {
+    "williamboman/mason.nvim",
+    opts = overrides.mason,
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = overrides.nvimtree,
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    opts = overrides.blankline,
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
       { "nvim-lua/plenary.nvim" },
       { "kdheepak/lazygit.nvim" },
     },
-    override_options = overrides.telescope,
+    opts = overrides.telescope,
   },
-  ["hrsh7th/nvim-cmp"] = { override_options = overrides.cmp },
-  ["NvChad/ui"] = { override_options = overrides.ui },
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+        {
+          "tzachar/cmp-tabnine",
+          after = "nvim-cmp",
+          run = "./install.sh",
+        },
+    },
+    opts = overrides.cmp
+  },
+  {
+    "NvChad/ui",
+    opts = overrides.ui,
+  },
+  {
+    "folke/which-key.nvim",
+    enabled = true,
+  },
 
   --------------------------------------------- custom plugins ----------------------------------------------
 
-  ["natecraddock/sessions.nvim"] = {
+  {
+    "natecraddock/sessions.nvim",
     config = function()
       require("sessions").setup {
         events = { "WinEnter", "VimLeavePre" },
@@ -49,7 +94,8 @@ return {
     end,
   },
   -- workspaces
-  ["natecraddock/workspaces.nvim"] = {
+  {
+    "natecraddock/workspaces.nvim",
     config = function()
       require("workspaces").setup {
         hooks = {
@@ -60,64 +106,69 @@ return {
   },
 
   -- autoclose tags in html, jsx only
-  ["windwp/nvim-ts-autotag"] = {
+  {
+    "windwp/nvim-ts-autotag",
     ft = { "html", "javascriptreact" },
-    after = "nvim-treesitter",
+    event = "InsertEnter",
     config = function()
       require("nvim-ts-autotag").setup()
     end,
   },
 
   -- Better quickfix
-  ["kevinhwang91/nvim-bqf"] = {
+  {
+    "kevinhwang91/nvim-bqf",
     ft = "qf",
   },
 
-  ["junegunn/fzf"] = {
-    run = function()
+  {
+    "junegunn/fzf",
+    build = function()
       vim.fn["fzf#install"]()
     end,
   },
 
   -- scroll smooth
-  ["yuttie/comfortable-motion.vim"] = {},
-
-  -- format & linting
-  ["jose-elias-alvarez/null-ls.nvim"] = {
-    after = "nvim-lspconfig",
-    config = function()
-      require "custom.plugins.null-ls"
-    end,
+  {
+    "yuttie/comfortable-motion.vim",
   },
 
   -- jump motion
-  ["ggandor/leap.nvim"] = {
+  {
+    "ggandor/leap.nvim",
     config = function()
       require("leap").add_default_mappings()
     end,
   },
 
-  ["ggandor/flit.nvim"] = {
+  {
+    "ggandor/flit.nvim",
     config = function()
       require("flit").setup()
     end,
   },
 
-  ["kylechui/nvim-surround"] = {
-    tag = "*",
+  {
+    "kylechui/nvim-surround",
+    version = "*",
     config = function()
       require("nvim-surround").setup()
     end,
   },
 
   -- lazygit nvim
-  ["kdheepak/lazygit.nvim"] = {},
+  {
+    "kdheepak/lazygit.nvim",
+  },
 
   -- multi cursor
-  ["mg979/vim-visual-multi"] = {},
+  {
+    "mg979/vim-visual-multi",
+  },
 
   -- distraction free modes
-  ["Pocco81/TrueZen.nvim"] = {
+  {
+    "Pocco81/TrueZen.nvim",
     cmd = {
       "TZAtaraxis",
       "TZMinimalist",
@@ -129,7 +180,8 @@ return {
   },
 
   -- get highlight group under cursor
-  ["nvim-treesitter/playground"] = {
+  {
+    "nvim-treesitter/playground",
     cmd = "TSCaptureUnderCursor",
     config = function()
       require("nvim-treesitter.configs").setup()
@@ -137,88 +189,88 @@ return {
   },
 
   -- autosave
-  ["Pocco81/auto-save.nvim"] = {
+  {
+    "Pocco81/auto-save.nvim",
     config = function()
       require("auto-save").setup()
     end,
   },
 
   -- markdown plugin
-  ["iamcco/markdown-preview.nvim"] = {
+  {
+    "iamcco/markdown-preview.nvim",
     config = function()
       vim.fn["mkdp#util#install"]()
     end,
   },
 
   -- todo comments plugin
-  ["folke/todo-comments.nvim"] = {
-    requires = "nvim-lua/plenary.nvim",
+  {
+    "folke/todo-comments.nvim",
+    dependencies = "nvim-lua/plenary.nvim",
     config = function()
       require("todo-comments").setup()
     end,
   },
 
   -- automatically highlighting other uses of the word under the cursor
-  ["RRethy/vim-illuminate"] = {},
+  {
+    "RRethy/vim-illuminate",
+  },
 
   -- github plugin
-  ["pwntester/octo.nvim"] = {
-    requires = {
+  {
+    "pwntester/octo.nvim",
+    dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
       "kyazdani42/nvim-web-devicons",
     },
-    after = "telescope.nvim",
     config = function()
       require "custom.plugins.octo"
     end,
   },
 
-  ["petertriho/cmp-git"] = {
-    requires = "nvim-lua/plenary.nvim",
+  {
+    "petertriho/cmp-git",
+    dependencies = "nvim-lua/plenary.nvim",
     config = function()
       require("cmp_git").setup()
     end,
   },
 
   -- translate plugin
-  ["potamides/pantran.nvim"] = {
+  {
+    "potamides/pantran.nvim",
     config = function()
       require "custom.plugins.pantran"
     end,
   },
 
   -- Pop-up code action menu
-  ["weilbith/nvim-code-action-menu"] = {
+  {
+    "weilbith/nvim-code-action-menu",
     cmd = "CodeActionMenu",
   },
 
-  ["dyng/ctrlsf.vim"] = {},
+  {
+    "dyng/ctrlsf.vim",
+  },
 
-  ["simrat39/symbols-outline.nvim"] = {
+  {
+    "simrat39/symbols-outline.nvim",
     config = function()
       require("symbols-outline").setup()
     end,
   },
 
-  ["lvimuser/lsp-inlayhints.nvim"] = {
+  {
+    "lvimuser/lsp-inlayhints.nvim",
     config = function()
       require("lsp-inlayhints").setup()
     end,
   },
 
-  ["simrat39/rust-tools.nvim"] = {
-    after = "nvim-lspconfig",
-    config = function()
-      require("rust-tools").setup {
-        tools = {
-          inlay_hints = {
-            auto = false,
-          },
-        },
-      }
-    end,
-  },
 
   -- ["barrett-ruth/import-cost.nvim"] = {
   --   build = "sh install.sh yarn",
@@ -227,19 +279,17 @@ return {
   --   end,
   -- },
 
-  ["sindrets/diffview.nvim"] = {
-    requires = "nvim-lua/plenary.nvim",
+  {
+    "sindrets/diffview.nvim",
+    dependencies = "nvim-lua/plenary.nvim",
     config = function()
       require "custom.plugins.diffview"
     end,
   },
 
-  ["tzachar/cmp-tabnine"] = {
-    after = "nvim-cmp",
-    run = "./install.sh",
-  },
 
-  ["folke/zen-mode.nvim"] = {
+  {
+    "folke/zen-mode.nvim",
     cmd = "ZenMode",
     config = function()
       require("zen-mode").setup {
@@ -250,3 +300,5 @@ return {
     end,
   },
 }
+
+return plugins
