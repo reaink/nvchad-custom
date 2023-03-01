@@ -1,11 +1,21 @@
 -- overriding default plugin configs!
-
 local M = {}
 
 -- ui config
 M.ui = {
   statusline = {
     separator_style = "block",
+  },
+}
+
+M.cmp = {
+  sources = {
+    { name = "luasnip" },
+    { name = "nvim_lsp" },
+    { name = "buffer" },
+    { name = "nvim_lua" },
+    { name = "path" },
+    { name = "cmp_tabnine" },
   },
 }
 
@@ -55,10 +65,6 @@ M.nvimtree = {
     enable = true,
     ignore = false,
   },
-
-  -- view = {
-  --   adaptive_size = false,
-  -- },
 
   renderer = {
     highlight_git = true,

@@ -34,10 +34,8 @@ return {
     },
     override_options = overrides.telescope,
   },
-
-  ["NvChad/ui"] = {
-    override_options = overrides.ui,
-  },
+  ["hrsh7th/nvim-cmp"] = { override_options = overrides.cmp },
+  ["NvChad/ui"] = { override_options = overrides.ui },
 
   --------------------------------------------- custom plugins ----------------------------------------------
 
@@ -115,17 +113,7 @@ return {
   -- lazygit nvim
   ["kdheepak/lazygit.nvim"] = {},
 
-  -- openai code
-  ["dense-analysis/neural"] = {
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "ElPiloto/significant.nvim",
-    },
-    config = function()
-      require "custom.plugins.neural"
-    end,
-  },
-
+  -- multi cursor
   ["mg979/vim-visual-multi"] = {},
 
   -- distraction free modes
@@ -244,6 +232,11 @@ return {
     config = function()
       require "custom.plugins.diffview"
     end,
+  },
+
+  ["tzachar/cmp-tabnine"] = {
+    after = "nvim-cmp",
+    run = "./install.sh",
   },
 
   ["folke/zen-mode.nvim"] = {
