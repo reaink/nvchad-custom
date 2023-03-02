@@ -62,9 +62,10 @@ end
 --   filetypes = { "typescriptreact" },
 -- }
 
-lspconfig.lua_ls.setup({
+lspconfig.lua_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+
   settings = {
     Lua = {
       diagnostics = {
@@ -85,7 +86,7 @@ lspconfig.lua_ls.setup({
       },
     },
   },
-})
+}
 
 lspconfig.emmet_ls.setup {
   on_attach = on_attach,
@@ -110,29 +111,29 @@ lspconfig.emmet_ls.setup {
 
 -- require("ufo").setup()
 
-lspconfig.tsserver.setup({
+lspconfig.tsserver.setup {
   settings = {
     typescript = {
       inlayHints = {
-        includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHints = "all",
         includeInlayParameterNameHintsWhenArgumentMatchesName = false,
         includeInlayFunctionParameterTypeHints = true,
         includeInlayVariableTypeHints = true,
         includeInlayPropertyDeclarationTypeHints = true,
         includeInlayFunctionLikeReturnTypeHints = true,
         includeInlayEnumMemberValueHints = true,
-      }
+      },
     },
     javascript = {
       inlayHints = {
-        includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHints = "all",
         includeInlayParameterNameHintsWhenArgumentMatchesName = false,
         includeInlayFunctionParameterTypeHints = true,
         includeInlayVariableTypeHints = true,
         includeInlayPropertyDeclarationTypeHints = true,
         includeInlayFunctionLikeReturnTypeHints = true,
         includeInlayEnumMemberValueHints = true,
-      }
-    }
-  }
-})
+      },
+    },
+  },
+}

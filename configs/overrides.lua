@@ -73,25 +73,15 @@ M.nvimtree = {
   },
 }
 
-M.gitsigns = {
-  signs = {
-    add = { hl = "DiffAdd", text = "+", numhl = "GitSignsAddNr" },
-    change = { hl = "DiffChange", text = "~", numhl = "GitSignsChangeNr" },
-    delete = { hl = "DiffDelete", text = "-", numhl = "GitSignsDeleteNr" },
-    topdelete = { hl = "DiffDelete", text = "-", numhl = "GitSignsDeleteNr" },
-  },
-}
-
 M.blankline = {
   filetype_exclude = {
     "help",
     "terminal",
-    "alpha",
-    "packer",
+    "lazy",
     "lspinfo",
     "TelescopePrompt",
     "TelescopeResults",
-    "nvchad_cheatsheet",
+    "mason",
     "lsp-installer",
     "norg",
     "",
@@ -99,9 +89,6 @@ M.blankline = {
 }
 
 M.telescope = {
-  defaults = {
-    prompt_prefix = "",
-  },
   extensions_list = { "themes", "terms", "lazygit", "workspaces" },
 }
 

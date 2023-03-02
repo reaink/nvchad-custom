@@ -52,12 +52,17 @@ local plugins = {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       { "nvim-lua/plenary.nvim" },
-      { "kdheepak/lazygit.nvim" },
     },
     opts = overrides.telescope,
   },
   {
     "hrsh7th/nvim-cmp",
+    dependencies = {
+      {
+        "tzachar/cmp-tabnine",
+        build = "./install.sh",
+      },
+    },
     opts = overrides.cmp,
   },
   {
@@ -69,11 +74,6 @@ local plugins = {
     enabled = true,
   },
   -- add custom plugins
-  {
-    "tzachar/cmp-tabnine",
-    build = "./install.sh",
-    dependencies = "hrsh7th/nvim-cmp",
-  },
   {
     "natecraddock/sessions.nvim",
     config = function()
@@ -128,8 +128,6 @@ local plugins = {
       { "<C-d>" },
       { "<C-f>" },
       { "<C-b>" },
-      { "<C-o>" },
-      { "<C-i>" },
       { "zz" },
       { "zt" },
       { "zb" },
@@ -181,6 +179,10 @@ local plugins = {
   -- lazygit nvim
   {
     "kdheepak/lazygit.nvim",
+    cmd = { "LazyGit", "LazyGitFilterCurrentFile" },
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
   },
 
   -- multi cursor
