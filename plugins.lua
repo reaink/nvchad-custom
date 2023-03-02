@@ -88,6 +88,9 @@ local plugins = {
   {
     "natecraddock/workspaces.nvim",
     event = "VeryLazy",
+    dependencies = {
+      "nvim-tree/nvim-tree.lua",
+    },
     config = function()
       require("workspaces").setup {
         hooks = {
@@ -225,8 +228,10 @@ local plugins = {
 
   -- markdown plugin
   {
+
     "iamcco/markdown-preview.nvim",
-    config = function()
+    ft = "markdown",
+    build = function()
       vim.fn["mkdp#util#install"]()
     end,
   },
