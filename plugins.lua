@@ -221,6 +221,7 @@ local plugins = {
   -- autosave
   {
     "Pocco81/auto-save.nvim",
+    cmd = { "ASToggle" },
     config = function()
       require("auto-save").setup()
     end,
