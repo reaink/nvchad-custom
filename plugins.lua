@@ -242,6 +242,7 @@ local plugins = {
     "folke/todo-comments.nvim",
     dependencies = "nvim-lua/plenary.nvim",
     cmd = { "TodoTelescope" },
+    event = { "BufEnter" },
     config = function()
       require("todo-comments").setup()
     end,
