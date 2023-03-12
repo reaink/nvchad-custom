@@ -7,7 +7,7 @@ M.general = {
 
     ["<leader>cd"] = { "<cmd> cd %:p:h <CR> <cmd> pwd <CR>", "jump to current dir to pwd" },
     ["<leader>ca"] = { "<cmd> CodeActionMenu <CR>", "code action menu" },
-
+    ["<leader>tk"] = { "<cmd> Telescope keymaps <CR>", "show keys" },
     ["<leader>so"] = { "<cmd> SymbolsOutline <CR>", "symbols outline" },
 
     ["<A-Down>"] = { "<cmd> res +1 <CR>", "resize window +1" },
@@ -108,9 +108,9 @@ M.lazy = {
   n = {
     ["<leader>lz"] = {
       "<cmd> Lazy <cr>",
-      "open lazy"
-    }
-  }
+      "open lazy",
+    },
+  },
 }
 
 return M
