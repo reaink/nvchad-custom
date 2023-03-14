@@ -30,10 +30,16 @@ M.general = {
       end,
       "tabbuf move left",
     },
+    ["\\"] = {
+      function()
+        require("nvchad_ui.tabufline").tbufpick()
+      end,
+      "pick buffer",
+    },
   },
 
   i = {
-    ["jk"] = { "<ESC>", "escape vim" },
+    ["jk"] = { "<ESC>", "escape insert mode", opts = { nowait = true } },
   },
 
   t = {
