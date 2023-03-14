@@ -18,10 +18,18 @@ M.general = {
     ["<A-j>"] = { "<cmd> m+ <CR>", "move line ↓" },
     ["<A-k>"] = { "<cmd> m-2 <CR>", "move line ↑" },
 
-    ["<A-=>"] = { "<cmd> TbufRight <CR>", "tabbuf move right" },
-    ["<A-->"] = { "<cmd> TbufLeft <CR>", "tabbuf move left" },
-    ["<C-]>"] = { "<cmd> tabNext <CR>", "tab next" },
-    ["<C-[>"] = { "<cmd> tabprevious <CR>", "tab previous" },
+    ["<A-=>"] = {
+      function()
+        require("nvchad_ui.tabufline").move_buf(1)
+      end,
+      "tabbuf move right",
+    },
+    ["<A-->"] = {
+      function()
+        require("nvchad_ui.tabufline").move_buf(-1)
+      end,
+      "tabbuf move left",
+    },
   },
 
   i = {
