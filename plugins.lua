@@ -125,7 +125,7 @@ local plugins = {
 
   -- scroll smooth
   {
-    "declancm/cinnamon.nvim",
+    "karb94/neoscroll.nvim",
     keys = {
       { "<C-u>" },
       { "<C-d>" },
@@ -136,10 +136,7 @@ local plugins = {
       { "zb" },
     },
     config = function()
-      require("cinnamon").setup {
-        default_keymaps = true,
-        extra_keymaps = true,
-      }
+      require("neoscroll").setup()
     end,
   },
 
