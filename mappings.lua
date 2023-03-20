@@ -61,6 +61,32 @@ M.diffview = {
   },
 }
 
+M.spectre = {
+  n = {
+    ["<leader>S"] = { "<cmd> Spectre <CR>", "open spectre" },
+    ["<leader>sw"] = {
+      function()
+        require("spectre").open_visual { select_word = true }
+      end,
+      "search current word",
+    },
+    ["<leader>sp"] = {
+      function()
+        require("spectre").open_file_search { select_word = true }
+      end,
+      "search on current file",
+    },
+  },
+  v = {
+    ["<leader>sw"] = {
+      function()
+        require("spectre").open_visual()
+      end,
+      "search current word",
+    },
+  },
+}
+
 M.truzen = {
   n = {
     ["<leader>ta"] = { "<cmd> TZAtaraxis <CR>", "truzen ataraxis" },

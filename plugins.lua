@@ -287,7 +287,8 @@ local plugins = {
   },
 
   {
-    "dyng/ctrlsf.vim",
+    "nvim-pack/nvim-spectre",
+    cmd = { "Spectre" },
   },
   {
     "simrat39/symbols-outline.nvim",
