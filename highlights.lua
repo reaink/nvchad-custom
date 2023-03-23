@@ -4,7 +4,7 @@
 
 local M = {}
 
----@type HLTable
+---@type Base46HLGroupsList
 M.override = {
   AlphaHeader = { fg = "blue" },
 

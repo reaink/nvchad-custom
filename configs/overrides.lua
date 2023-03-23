@@ -116,6 +116,7 @@ M.mason = {
     "deno",
     "typescript-language-server",
     "eslint_d",
+    "prettier",
 
     -- Rust
     "rust-analyzer",
