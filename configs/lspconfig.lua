@@ -19,9 +19,6 @@ local servers = {
   -- Yaml
   "yamlls",
 
-  -- PHP
-  "intelephense",
-
   -- JSON
   "jsonls",
 

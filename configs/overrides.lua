@@ -34,7 +34,6 @@ M.treesitter = {
     "vim",
     "lua",
 
-    "php",
     "json",
     "markdown",
     "markdown_inline",
@@ -133,11 +132,6 @@ M.mason = {
     -- Shell
     "shfmt",
     "shellcheck",
-
-    -- PHP
-    "intelephense",
-    "php-cs-fixer",
-    "phpcs",
 
     -- Yaml
     "yaml-language-server",
