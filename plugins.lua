@@ -315,6 +315,27 @@ local plugins = {
   },
 
   {
+    "akinsho/git-conflict.nvim",
+    version = "*",
+    cmd = {
+      "GitConflictChooseOurs",
+      "GitConflictChooseTheirs",
+      "GitConflictChooseBoth",
+      "GitConflictChooseNone",
+      "GitConflictNextConflict",
+      "GitConflictRefresh",
+      "GitConflictListQf",
+    },
+    config = function()
+      require("git-conflict").setup {
+        default_mappings = true,
+        disable_diagnostics = false,
+        highlights = { incoming = "DiffText", current = "DiffAdd" },
+      }
+    end,
+  },
+
+  {
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
     config = function()

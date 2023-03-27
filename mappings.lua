@@ -54,6 +54,12 @@ M.lazygit = {
   },
 }
 
+M.gitconflict = {
+  n = {
+    ["<leader>dr"] = { "<cmd> GitConflictRefresh <CR>", "git conflict refresh" },
+  },
+}
+
 M.diffview = {
   n = {
     ["<leader>gd"] = { "<cmd> DiffviewOpen <CR>", "open diffview" },
