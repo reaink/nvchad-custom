@@ -326,6 +326,14 @@ local plugins = {
       "GitConflictRefresh",
       "GitConflictListQf",
     },
+    keys = {
+      { "co" },
+      { "ct" },
+      { "cb" },
+      { "c0" },
+      { "]x" },
+      { "[x" },
+    },
     config = function()
       require("git-conflict").setup {
         default_mappings = true,
