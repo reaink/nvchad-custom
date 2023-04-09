@@ -35,7 +35,6 @@ local sources = {
         vim.bo[params.bufnr].shiftwidth,
       }
     end,
-    filetypes = { ["markdown"] = false },
   },
 
   -- Spell
