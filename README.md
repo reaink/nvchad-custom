@@ -15,26 +15,35 @@ mv ~/.config/nvim ~/.config/NVIM.BAK
 ``` shell
 rm -rf ~/.config/nvim
 rm -rf ~/.local/share/nvim
-rm -rf ~/.cache/nvim
 ```
 
-### 2. Installation NvChad and sync packer
+### 2. Installation NvChad and sync plugins
 
 ```sh
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
-nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 ```
 
-> await packer installed restart nvim
+> await installed
 
-### 3. Installation my custom config and sync packer
+### 3. Installation custom configs
 
 ```sh
+rm -r ~/.config/nvim/lua/custom
 git clone https://github.com/reaink/nvchad-custom ~/.config/nvim/lua/custom
-nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
+nvim
 ```
 
-> await packer installed restart nvim
+> await installed restart nvim
+
+### 4. install Mason plugins, TreeSitter
+
+Enter nvim execute commands
+
+```sh
+:MasonInstallAll
+
+:TSUpdateSync
+```
 
 ## Documentation
 
