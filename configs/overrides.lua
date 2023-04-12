@@ -1,17 +1,6 @@
 -- overriding default plugin configs!
 local M = {}
 
-M.cmp = {
-  sources = {
-    { name = "luasnip" },
-    { name = "nvim_lsp" },
-    { name = "buffer" },
-    { name = "nvim_lua" },
-    { name = "path" },
-    { name = "cmp_tabnine" },
-  },
-}
-
 M.treesitter = {
   ensure_installed = {
     -- HTML CSS

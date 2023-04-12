@@ -1,4 +1,5 @@
 local overrides = require "custom.configs.overrides"
+local cmp = require "custom.configs.cmp"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -58,12 +59,42 @@ local plugins = {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
+      -- {
+      --   "tzachar/cmp-tabnine",
+      --   build = "./install.sh",
+      -- },
       {
-        "tzachar/cmp-tabnine",
-        build = "./install.sh",
+        "zbirenbaum/copilot-cmp",
+        config = true,
+        dependencies = {
+          {
+            "zbirenbaum/copilot.lua",
+            event = "InsertEnter",
+            config = function()
+              require("copilot").setup {
+                server_opts_overrides = {
+                  trace = "verbose",
+                  settings = {
+                    advanced = {
+                      listCount = 10, -- #completions for panel
+                      inlineSuggestCount = 3, -- #completions for getCompletions
+                    },
+                  },
+                },
+              }
+            end,
+          },
+          {
+            "petertriho/cmp-git",
+            dependencies = "nvim-lua/plenary.nvim",
+            config = function()
+              require("cmp_git").setup()
+            end,
+          },
+        },
       },
     },
-    opts = overrides.cmp,
+    opts = cmp,
   },
   {
     "NvChad/ui",
@@ -260,14 +291,6 @@ local plugins = {
     },
     config = function()
       require "custom.configs.octo"
-    end,
-  },
-
-  {
-    "petertriho/cmp-git",
-    dependencies = "nvim-lua/plenary.nvim",
-    config = function()
-      require("cmp_git").setup()
     end,
   },
 
