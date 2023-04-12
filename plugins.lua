@@ -69,6 +69,7 @@ local plugins = {
         dependencies = {
           {
             "zbirenbaum/copilot.lua",
+            cmd = "Copilot",
             event = "InsertEnter",
             config = function()
               require("copilot").setup {
@@ -77,7 +78,7 @@ local plugins = {
                   settings = {
                     advanced = {
                       listCount = 10, -- #completions for panel
-                      inlineSuggestCount = 3, -- #completions for getCompletions
+                      inlineSuggestCount = 5, -- #completions for getCompletions
                     },
                   },
                 },
