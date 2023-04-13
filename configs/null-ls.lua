@@ -20,8 +20,16 @@ local sources = {
   b.formatting.stylua,
 
   -- TypeScript, JavaScript
-  b.code_actions.eslint_d,
-  b.formatting.eslint_d,
+  b.code_actions.eslint_d.with {
+    condition = function(utils)
+      return utils.root_has_file { "package.json" }
+    end,
+  },
+  b.formatting.eslint_d.with {
+    condition = function(utils)
+      return utils.root_has_file { "package.json" }
+    end,
+  },
   b.formatting.deno_fmt.with {
     args = function(params)
       return {
@@ -34,6 +42,9 @@ local sources = {
         "--options-indent-width",
         vim.bo[params.bufnr].shiftwidth,
       }
+    end,
+    condition = function(utils)
+      return utils.root_has_file { "deno.json", "deno.jsonc", "deps.ts", "import_map.json" }
     end,
   },
 

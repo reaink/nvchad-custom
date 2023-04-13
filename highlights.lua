@@ -6,8 +6,6 @@ local M = {}
 
 ---@type Base46HLGroupsList
 M.override = {
-  AlphaHeader = { fg = "blue" },
-
   DiffAdd = { fg = "none", bg = "#103235" },
   DiffChange = { fg = "none", bg = "#272D43" },
   DiffText = { fg = "none", bg = "#394b70" },
