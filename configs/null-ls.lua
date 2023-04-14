@@ -48,6 +48,11 @@ local sources = {
     end,
   },
 
+  -- Stylus
+  b.formatting.prettier.with {
+    filetypes = { "css", "scss", "sass", "less" },
+  },
+
   -- Spell
   -- b.diagnostics.cspell,
   -- b.code_actions.cspell,
