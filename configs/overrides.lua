@@ -12,7 +12,8 @@ M.treesitter = {
     "javascript",
     "typescript",
     "tsx",
-    -- "tailwindcss-language-server",
+    "svelte",
+    "vue",
 
     -- Rust
     "rust",
@@ -23,6 +24,7 @@ M.treesitter = {
     "vim",
     "lua",
 
+    "php",
     "json",
     "markdown",
     "markdown_inline",
@@ -39,6 +41,13 @@ M.treesitter = {
   indent = {
     enable = true,
   },
+  context_commentstring = {
+    enable = true,
+  },
+}
+
+M.comment = {
+  -- pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
 }
 
 M.nvimtree = {

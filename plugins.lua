@@ -35,7 +35,14 @@ local plugins = {
   -- overrides defaults
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      "JoosepAlviste/nvim-ts-context-commentstring",
+    },
     opts = overrides.treesitter,
+  },
+  {
+    "numToStr/Comment.nvim",
+    opts = overrides.comment,
   },
   {
     "williamboman/mason.nvim",
